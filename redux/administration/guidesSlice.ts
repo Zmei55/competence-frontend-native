@@ -9,7 +9,7 @@ import {
 	TLanguageLevel,
 	TProfession,
 	TSkillLevel,
-} from '..';
+} from 'screens/administration';
 
 const initialState: TGuidesState = {
 	guides: {

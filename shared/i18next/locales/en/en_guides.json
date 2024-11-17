@@ -1,0 +1,24 @@
+{
+  "industry": "Industry",
+  "jobTitle": "Job title",
+  "profession": "Profession",
+  "name": "Name",
+  "sort": "Sort",
+  "byName": "By Name",
+  "byId": "By ID",
+  "rowsPerPage": "Rows per page:",
+  "users": "Users",
+  "byE-mail": "By e-mail",
+  "byNickName": "By nick",
+  "search": "Search",
+  "thisItem": "this item",
+  "sureToDelete": "Are you sure you want to delete",
+  "snackbar": {
+    "industryAdded": "Industry added",
+    "industryUpdated": "Industry updated",
+    "professionAdded": "Profession added",
+    "professionUpdated": "Profession updated",
+    "jobAdded": "Job added",
+    "jobUpdated": "Job updated"
+  }
+}

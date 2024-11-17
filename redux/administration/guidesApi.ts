@@ -1,4 +1,4 @@
-import { api } from 'src/app';
+import { api } from '../app/api';
 import {
 	TDriverLicence,
 	TEducationType,
@@ -8,7 +8,7 @@ import {
 	TLanguageLevel,
 	TProfession,
 	TSkillLevel,
-} from '..';
+} from 'screens/administration';
 
 const guidesApi = api.injectEndpoints({
 	endpoints: (builder) => ({

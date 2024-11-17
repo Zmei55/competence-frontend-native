@@ -1,0 +1,12 @@
+{
+  "myProfile": "Mein Profil",
+  "administration": "Verwaltung",
+  "competencies": "Kompetenzen",
+  "requests": "Anfragen",
+  "aboutProject": "Über das Projekt",
+  "contacts": "Kontakte",
+  "weOnMap": "Wir sind auf der Karte",
+  "map": {
+    "registerOrLog": "Registrieren Sie sich oder melden Sie sich an, um uns auf der Karte anzuzeigen und auf die Funktionen der Site zuzugreifen."
+  }
+}

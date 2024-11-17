@@ -1,6 +1,6 @@
-import { api } from 'src/app';
-import { TAdminCompetence } from '..';
-import { TCompetence } from 'src/features/competence';
+import { api } from '../app/api';
+import { TAdminCompetence } from 'screens/administration';
+import { TCompetence } from 'screens/competence';
 
 const adminCompetenciesApi = api.injectEndpoints({
 	endpoints: (builder) => ({

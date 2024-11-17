@@ -1,0 +1,28 @@
+{
+  "administrationSection": "Administrationsbereich",
+  "users": "Benutzer",
+  "competencies": "Kompetenzen",
+  "competenciesNotFound": "Kompetenzen nicht gefunden",
+  "guides": "Listen",
+  "sureToDelete": "Möchten Sie wirklich löschen?",
+  "filter": {
+    "search": "Suche nach Benutzername (Vor- und/oder Nachname)"
+  },
+  "updateMenu": {
+    "email": "Email",
+    "roles": "Rollen",
+    "nickName": "Spitzname",
+    "statusInSchool": "Status in AIT-TR",
+    "generalData": "Allgemeine Daten",
+    "deleteAccount": "Konto löschen",
+    "accountDeleted": "Konto gelöscht",
+    "sureDeleteAccount?": "Möchten Sie das Konto dieses Benutzers wirklich löschen?"
+  },
+  "snackbar": {
+    "userDataUpdated": "Benutzerdaten aktualisiert",
+    "userEmailUpdated": "E-Mail aktualisiert",
+    "userNicknameUpdated": "Spitzname aktualisiert",
+    "userRolesUpdated": "Rollen aktualisiert",
+    "userStatusInSchoolUpdated": "Status in der Schule aktualisiert"
+  }
+}

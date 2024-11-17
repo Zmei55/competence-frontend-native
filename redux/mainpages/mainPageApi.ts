@@ -1,5 +1,5 @@
-import { api } from 'src/app';
-import { TDeveloper } from '..';
+import { api } from '../app/api';
+import { TDeveloper } from 'screens/mainpages';
 
 const userApi = api.injectEndpoints({
 	endpoints: (builder) => ({

@@ -1,0 +1,12 @@
+{
+  "myProfile": "My Profile",
+  "administration": "Administration",
+  "competencies": "Competencies",
+  "requests": "Requests",
+  "aboutProject": "About project",
+  "contacts": "Contacts",
+  "weOnMap": "We are on the map",
+  "map": {
+    "registerOrLog": "Register or log in to see us on the map and access the site's functionality."
+  }
+}

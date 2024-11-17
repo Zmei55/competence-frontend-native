@@ -1,7 +1,7 @@
 import { StaticParamList  } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { HomeScreen } from './screens/HomeScreen';
+import { HomeScreen } from 'screens/mainpages';
 import { LoginScreen } from './screens/auth/LoginScreen';
 import { RegisterScreen } from './screens/auth/RegisterScreen';
 

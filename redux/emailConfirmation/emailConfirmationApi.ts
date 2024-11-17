@@ -1,4 +1,4 @@
-import { api } from 'src/app';
+import { api } from '../app/api';
 
 const emailConfirmationApi = api.injectEndpoints({
 	endpoints: (builder) => ({

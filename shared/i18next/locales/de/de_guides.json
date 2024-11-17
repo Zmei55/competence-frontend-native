@@ -1,0 +1,24 @@
+{
+  "industry": "Branche",
+  "jobTitle": "Berufsbezeichnung",
+  "profession": "Beruf",
+  "name": "Name",
+  "sort": "Sortieren",
+  "byName": "Nach Name",
+  "byId": "Nach ID",
+  "rowsPerPage": "Zeilen pro Seite:",
+  "users": "Benutzer",
+  "byE-mail": "Nach E-Mail",
+  "byNickName": "Nach Nick",
+  "search": "Suchen",
+  "thisItem": "dieser Artikel",
+  "sureToDelete": "Möchten Sie wirklich löschen?",
+  "snackbar": {
+    "industryAdded": "Branche hinzugefügt",
+    "industryUpdated": "Branche aktualisiert",
+    "professionAdded": "Beruf hinzugefügt",
+    "professionUpdated": "Beruf aktualisiert",
+    "jobAdded": "Job hinzugefügt",
+    "jobUpdated": "Job aktualisiert"
+  }
+}

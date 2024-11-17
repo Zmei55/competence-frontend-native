@@ -1,5 +1,5 @@
-import { api } from 'src/app';
-import { TCompetence } from 'src/features/competence';
+import { api } from '../app/api';
+import { TCompetence } from 'screens/competence';
 
 const educationsApi = api.injectEndpoints({
 	endpoints: (builder) => ({

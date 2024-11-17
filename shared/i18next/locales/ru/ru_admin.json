@@ -1,0 +1,28 @@
+{
+  "administrationSection": "Раздел администрирования",
+  "users": "Пользователи",
+  "competencies": "Компетенции",
+  "competenciesNotFound": "Компетенции не найдены",
+  "guides": "Списки",
+  "sureToDelete": "Вы уверены что хотите удалить",
+  "filter": {
+    "search": "Поиск по имени пользователя (имя и/или фамилия)"
+  },
+  "updateMenu": {
+    "email": "Эл. почта",
+    "roles": "Роли",
+    "nickName": "Псевдоним",
+    "statusInSchool": "Статус в AIT-TR",
+    "generalData": "Общие данные",
+    "deleteAccount": "Удалить аккаунт",
+    "accountDeleted": "Учетная запись удалена",
+    "sureDeleteAccount?": "Вы уверены в том, что хотите удалить аккаунт данного пользователя?"
+  },
+  "snackbar": {
+    "userDataUpdated": "Данные обновлены",
+    "userEmailUpdated": "Адрес эл.почты обновлен",
+    "userNicknameUpdated": "Никнейм обновлен",
+    "userRolesUpdated": "Роли обновлены",
+    "userStatusInSchoolUpdated": "Статус в школе обновлен"
+  }
+}

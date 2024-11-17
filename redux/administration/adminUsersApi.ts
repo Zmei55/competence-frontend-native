@@ -1,4 +1,4 @@
-import { api } from 'src/app';
+import { api } from '../app/api';
 import {
 	TAdminUser,
 	TAdminUserEmailUpdate,
@@ -8,7 +8,7 @@ import {
 	TAdminUserSearch,
 	TAdminUserStatusInSchoolUpdate,
 	TAdminUserDataUpdate,
-} from '..';
+} from 'screens/administration';
 
 const adminUsersApi = api.injectEndpoints({
 	endpoints: (builder) => ({
