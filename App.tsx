@@ -1,63 +1,9 @@
-import { createStaticNavigation, ParamListBase, StaticParamList, useNavigationContainerRef  } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStaticNavigation, ParamListBase, useNavigationContainerRef  } from '@react-navigation/native';
 import { useReduxDevToolsExtension } from '@react-navigation/devtools';
+import { Provider } from 'react-redux';
 
-import { HomeScreen } from './screens/HomeScreen';
-import { LoginScreen } from './screens/auth/LoginScreen';
-import { RegisterScreen } from './screens/auth/RegisterScreen';
-
-declare global {
-  namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
-  }
-}
-
-type RootStackParamList = StaticParamList<typeof RootStack>;
-
-const useIsSignedIn = () => {
-  const isSignedIn = true;
-  return isSignedIn;
-}
-
-const useIsSignedOut = () => {
-  const isSignedIn = false;
-  return !isSignedIn;
-}
-
-const RootStack = createNativeStackNavigator({
-  initialRouteName: 'Home',
-  screens: {
-    Home: {
-      screen: HomeScreen,
-      options: {
-        headerShown: false,
-      },
-    },
-  },
-  groups: {
-    SignedOut: {
-      if: useIsSignedOut,
-      screens: {
-        Login: {
-          screen: LoginScreen,
-          options: {
-            headerShown: false,
-          },
-        },
-        Register: {
-          screen: RegisterScreen,
-          options: {
-            headerShown: false,
-          },
-        },
-      },
-    },
-    SignedIn: {
-      if: useIsSignedIn,
-      screens: {},
-    }
-  }
-  });
+import { store } from './redux/store';
+import { RootStack } from './router';
 
 export default function App() {
   const navigationRef = useNavigationContainerRef<ParamListBase>();
@@ -65,5 +11,9 @@ export default function App() {
   
   const Navigation = createStaticNavigation(RootStack);
 
-  return <Navigation ref={navigationRef} />;
+  return (
+    <Provider store={store}>
+      <Navigation ref={navigationRef} />
+    </Provider>
+  );
 }
