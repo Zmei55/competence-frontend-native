@@ -1,5 +1,5 @@
 export * from './Constants';
-// export * from './ui';
+export * from './theme';
 export * from './helpers';
 export * from './hooks';
 export * from './types';
