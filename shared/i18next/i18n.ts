@@ -1,7 +1,5 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-http-backend';
 import de_buttons from './locales/de/de_buttons.json';
 import de_header from './locales/de/de_header.json';
 import de_auth from './locales/de/de_auth.json';
@@ -40,12 +38,10 @@ import ru_feedback from './locales/ru/ru_feedback.json';
 import ru_aboutproject from './locales/ru/ru_aboutproject.json';
 
 i18n
-	.use(Backend)
-	.use(LanguageDetector)
 	.use(initReactI18next)
 	.init({
-		debug: false,
-		fallbackLng: 'en',
+		compatibilityJSON: 'v3',
+		lng: 'en',
 		resources: {
 			de: {
 				buttons: de_buttons,
