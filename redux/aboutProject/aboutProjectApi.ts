@@ -1,5 +1,5 @@
-import { api } from 'redux/app/api';
-import { TDeveloper } from '..';
+import { api } from '../app/api';
+import { TDeveloper } from 'screens/aboutProject';
 
 const userApi = api.injectEndpoints({
 	endpoints: (builder) => ({

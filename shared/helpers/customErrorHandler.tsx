@@ -1,4 +1,4 @@
-import { isErrorWithMessage } from 'shared';
+import { isErrorWithMessage } from 'shared/helpers';
 
 export const customErrorHandler = (error: unknown) => {
 	if (isErrorWithMessage(error) && error.status >= 400 && error.status < 500) {
