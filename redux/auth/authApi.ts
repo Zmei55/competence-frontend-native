@@ -1,5 +1,6 @@
-import { api } from 'src/app';
-import { TNewUser, TUser, TPassword } from 'src/features/auth';
+import { api } from '../app/api';
+import { TUser, TNewUser } from 'screens/auth/types';
+import { TPassword } from 'screens/auth/types/passwordTypes';
 
 const authApi = api.injectEndpoints({
 	endpoints: (builder) => ({

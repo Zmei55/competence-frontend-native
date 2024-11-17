@@ -1,0 +1,19 @@
+{
+    "noFeedbackRequestsWereSent": "Feedback requests have not been sent out yet",
+    "more": "More",
+    "rollUp": "Roll up",
+    "feedbackReceived": "Feedback received",
+    "noFeedbackReceived": "Request sent, no feedback received",
+    "nickName": "Nickname",
+    "rating": "rating",
+    "review": "review",
+    "dateFeedback": "review date",
+    "believeDisbelieve": "believe/disbelieve",
+    "dateSending": "date of request",
+    "sendRating": "rating from 1 to 5",
+    "sendReview": "text feedback/commentary",
+    "confirmFeedbackTitle": "Send feedback",
+    "confirmFeedbackMessage": "Competency rating is mandatory to send feedback, text feedback/comment and believe/disbelieve rating you can leave at your discretion",
+    "sendFeedback": "Form of sending feedback"
+  }
+  

@@ -1,4 +1,4 @@
-import { api } from 'src/app';
+import { api } from '../app/api';
 import {
 	TCompetaConfirmationRegistered,
 	TCompetaConfirmationUnregistered,
@@ -6,7 +6,7 @@ import {
 	TNewCompetaConfirmationRegistered,
 	TNewCompetaConfirmationUnregistered,
 	TGuarantorFilter,
-} from 'src/features/guarantee';
+} from 'screens/guarantee';
 
 const guaranteeApi = api.injectEndpoints({
 	endpoints: (builder) => ({

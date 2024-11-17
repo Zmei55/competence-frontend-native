@@ -1,0 +1,21 @@
+{
+  "login": "Melden Sie sich an, um fortzufahren",
+  "register": "Registrieren Sie ein Konto, um fortzufahren",
+  "loginContinue": "Sie haben bereits ein Konto?",
+  "registerContinue": "Sie haben noch kein Konto?",
+  "email": "E-Mail",
+  "nickName": "Spitzname",
+  "password": "Kennwort",
+  "passwordRepeat": "Kennwort wiederholen",
+  "emailConfirmationSent": "Eine E-Mail mit einem Bestätigungslink wurde an Ihre E-Mail-Adresse gesendet. Bitte überprüfen Sie Ihren Posteingang.",
+  "tooltips": {
+    "passwordRequirements": "Mindestens 8 Zeichen, ein Großbuchstabe, eine Zahl, ein Sonderzeichen(@, #, $, usw.)"
+  },
+  "resetPassword": "Kennwort zurücksetzen",
+  "accountDeleted": "Konto gelöscht",
+  "oldPassword": "Altes Kennwort",
+  "newPassword": "Neues Kennwort",
+  "repeatNewPassword": "Neues Kennwort wiederholen",
+  "textInfoNewPassword": "Wenn Sie Ihr Kennwort erfolgreich ändern, werden Sie automatisch zur Anmeldeseite weitergeleitet, wo Sie Ihr neues Kennwort eingeben müssen.",
+  "resetPasswordDialogTitle": "Möchten Sie Ihr Passwort ändern?"
+}

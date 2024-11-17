@@ -1,0 +1,21 @@
+{
+  "login": "Log in to continue",
+  "register": "Register an account to continue",
+  "loginContinue": "Already have an account?",
+  "registerContinue": "Don’t have an account yet?",
+  "email": "Email",
+  "nickName": "Nickname",
+  "password": "Password",
+  "passwordRepeat": "Repeat Password",
+  "emailConfirmationSent": "An email with a confirmation link has been sent to your email address. Please check your inbox.",
+  "tooltips": {
+    "passwordRequirements": "Password must be at least 8 characters long, include an uppercase letter, a number and symbols(@, #, $, etc.)"
+  },
+  "resetPassword": "Reset Password",
+  "accountDeleted": "Account deleted",
+  "oldPassword": "Old Password",
+  "newPassword": "New Password",
+  "repeatNewPassword": "Repeat New Password",
+  "textInfoNewPassword": "If you successfully change your password, you will be unlogged and redxirected automatically to the login page, where you will need to enter a new password.",
+  "resetPasswordDialogTitle": "Do you want to change your password?"
+}

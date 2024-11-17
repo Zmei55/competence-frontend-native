@@ -1,0 +1,28 @@
+{
+  "administrationSection": "Administration section",
+  "users": "Users",
+  "competencies": "Competencies",
+  "competenciesNotFound": "Competencies not found",
+  "guides": "Lists",
+  "sureToDelete": "Are you sure you want to delete",
+  "filter": {
+    "search": "Search by name of the user (first and/or last name)"
+  },
+  "updateMenu": {
+    "email": "Email",
+    "roles": "Roles",
+    "nickName": "Nickname",
+    "statusInSchool": "Status in AIT-TR",
+    "generalData": "General data",
+    "deleteAccount": "Delete account",
+    "accountDeleted": "Account deleted",
+    "sureDeleteAccount?": "Are you sure you want to delete this user's account?"
+  },
+  "snackbar": {
+    "userDataUpdated": "User data updated",
+    "userEmailUpdated": "Email updated",
+    "userNicknameUpdated": "Nickname updated",
+    "userRolesUpdated": "Roles updated",
+    "userStatusInSchoolUpdated": "Status in school updated"
+  }
+}

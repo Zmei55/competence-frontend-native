@@ -1,10 +1,10 @@
-import { api } from 'src/app';
+import { api } from '../app/api';
 import {
 	TNewCompletedFeedback,
 	TNewEmptyFeedbackRegisteredUser,
 	TNewEmptyFeedbackUnregisteredUser,
 	TResponseFeedback,
-} from '../types';
+} from 'screens/feedback';
 
 const feedbackApi = api.injectEndpoints({
 	endpoints: (builder) => ({

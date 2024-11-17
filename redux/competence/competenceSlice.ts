@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TCompetence, TCompetenceSlice } from 'src/features/competence';
+import { TCompetence, TCompetenceSlice } from 'screens/competence';
 
 const initialState: TCompetenceSlice = {
 	competence: null,

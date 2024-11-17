@@ -1,5 +1,5 @@
-import { api } from 'src/app';
-import { TAvatar } from '..';
+import { api } from '../app/api';
+import { TAvatar } from 'screens/profile';
 
 const avatarApi = api.injectEndpoints({
 	endpoints: (builder) => ({

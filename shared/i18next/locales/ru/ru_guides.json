@@ -1,0 +1,24 @@
+{
+  "industry": "Отрасль",
+  "jobTitle": "Должность",
+  "profession": "Профессия",
+  "name": "Имя",
+  "sort": "Сортировать",
+  "byName": "По имени",
+  "byId": "По ID",
+  "rowsPerPage": "Строк на странице:",
+  "users": "Пользователи",
+  "byE-mail": "По e-mail",
+  "byNickName": "По нику",
+  "search": "Поиск",
+  "thisItem": "этот элемент",
+  "sureToDelete": "Вы уверены что хотите удалить",
+  "snackbar": {
+    "industryAdded": "Отрасль добавлена",
+    "industryUpdated": "Отрасль обновлена",
+    "professionAdded": "Профессия добавлена",
+    "professionUpdated": "Профессия обновлена",
+    "jobAdded": "Работа добавлена",
+    "jobUpdated": "Работа обновлена"
+  }
+}
