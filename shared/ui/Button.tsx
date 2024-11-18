@@ -3,9 +3,9 @@ import { Text } from 'react-native'
 import { Button as ButtonNative, ButtonProps as ButtonNativeProps } from 'react-native-paper';
 import { Colors, Theme } from '../theme';
 
-type ButtonColorType = 'primary' | 'error' | 'transparent';
+type ButtonColorType = 'primary' | 'error';
 
-type TitleColorType = 'default' | 'white';
+type TitleColorType = 'text' | 'white';
 
 interface ButtonProps extends Omit<ButtonNativeProps, 'children'> {
   title: string;
@@ -16,8 +16,8 @@ interface ButtonProps extends Omit<ButtonNativeProps, 'children'> {
 
 export const Button: FC<ButtonProps> = ({
   title,
-  buttonColor = 'transparent',
-  titleColor = 'default',
+  buttonColor,
+  titleColor = 'text',
   mode = 'contained',
   children,
   onPress,
@@ -29,7 +29,7 @@ export const Button: FC<ButtonProps> = ({
         alignItems: 'center',
         justifyContent: 'center',
         height: 50,
-        backgroundColor: buttonColor === 'primary' ? Colors.primary : buttonColor === 'error' ? Colors.error : 'transparent',
+        backgroundColor: buttonColor ? Colors[buttonColor] : undefined,
         borderRadius: Theme.spacing(2),
         paddingHorizontal: Theme.spacing(4),
       }}
@@ -39,7 +39,7 @@ export const Button: FC<ButtonProps> = ({
         children :
         <Text style={{
           fontSize: 16,
-          color: titleColor === 'white' ? Colors.white : Colors.text
+          color: Colors[titleColor],
         }}>{title}</Text>
       }
         

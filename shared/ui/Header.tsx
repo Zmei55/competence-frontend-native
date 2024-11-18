@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     marginTop: Theme.spacing(10),
     paddingVertical: Theme.spacing(4),
     paddingLeft: Theme.spacing(4),
-    backgroundColor: Colors.default,
+    backgroundColor: Colors.gray,
   },
   appTitle: {
     color: Colors.primary,
