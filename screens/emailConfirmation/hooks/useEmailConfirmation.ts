@@ -1,30 +1,32 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from '@react-navigation/native';
 
-import { useLazyEmailConfirmationQuery } from '..';
-import { customErrorHandler } from 'shared';
+import { useLazyEmailConfirmationQuery } from 'redux/emailConfirmation/emailConfirmationApi';
+import { customErrorHandler } from 'shared/helpers';
 
 export const useEmailConfirmation = (token: string | undefined) => {
-	const navigate = useNavigate();
-	const [emailConfirmation, { isFetching: isEmailConfirmationLoading }] =
-		useLazyEmailConfirmationQuery();
-	const [emailConfirmationError, setEmailConfirmationError] = useState<string | null>(null);
+  const { navigate } = useNavigation();
+  const [emailConfirmation, { isFetching: isEmailConfirmationLoading }] =
+    useLazyEmailConfirmationQuery();
+  const [emailConfirmationError, setEmailConfirmationError] = useState<
+    string | null
+  >(null);
 
-	useEffect(() => {
-		if (token) {
-			const confirm = async () => {
-				try {
-					await emailConfirmation(token);
-					setEmailConfirmationError(null);
-					navigate('/login');
-				} catch (error) {
-					setEmailConfirmationError(customErrorHandler(error));
-				}
-			};
+  useEffect(() => {
+    if (token) {
+      const confirm = async () => {
+        try {
+          await emailConfirmation(token);
+          setEmailConfirmationError(null);
+          navigate('Login');
+        } catch (error) {
+          setEmailConfirmationError(customErrorHandler(error));
+        }
+      };
 
-			confirm();
-		}
-	}, [token]);
+      confirm();
+    }
+  }, [token]);
 
-	return { isEmailConfirmationLoading, emailConfirmationError };
+  return { isEmailConfirmationLoading, emailConfirmationError };
 };

@@ -18,13 +18,22 @@ type SubtitleTextProps = TextProps & {
 
 type CustomTextProps = TitleTextProps | SubtitleTextProps;
 
-export const Text: React.FC<CustomTextProps> = ({ title = false, subtitle = false, color = 'text', children, ...rest }) => {
+export const Text: React.FC<CustomTextProps> = ({
+  title = false,
+  subtitle = false,
+  color = 'text',
+  children,
+  ...rest
+}) => {
   return (
-    <TextNative style={{
-      fontSize: title ? 40 : subtitle ? 30 : 20,
-      color: Colors[color],
-    }}
+    <TextNative
+      style={{
+        fontSize: title ? 40 : subtitle ? 30 : 20,
+        color: Colors[color],
+      }}
       {...rest}
-    >{children}</TextNative>
-  )
-}
+    >
+      {children}
+    </TextNative>
+  );
+};

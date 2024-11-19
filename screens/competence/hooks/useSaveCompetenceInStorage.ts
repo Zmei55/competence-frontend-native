@@ -1,12 +1,13 @@
-import { useAppDispatch } from 'src/app';
-import { saveCompetence, TCompetence } from '..';
+import { useAppDispatch } from 'screens/app';
+import { saveCompetence } from 'redux/competence';
+import { TCompetence } from '..';
 
 export const useSaveCompetenceInStorage = () => {
-	const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-	const handleSaveCompetenceInStorage = (competence: TCompetence) => {
-		dispatch(saveCompetence(competence));
-	};
+  const handleSaveCompetenceInStorage = (competence: TCompetence) => {
+    dispatch(saveCompetence(competence));
+  };
 
-	return { handleSaveCompetenceInStorage };
+  return { handleSaveCompetenceInStorage };
 };

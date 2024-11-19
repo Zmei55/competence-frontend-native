@@ -1,5 +1,5 @@
 export type TListItem = {
-	id: number | string;
-	description?: string;
-	name?: string;
+  id: number | string;
+  description?: string;
+  name?: string;
 };

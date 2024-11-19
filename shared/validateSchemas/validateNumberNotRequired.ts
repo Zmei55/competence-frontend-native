@@ -1,14 +1,14 @@
-import { DEFAULT_STRING, SEPARATOR_MARK } from 'shared';
+import { DEFAULT_STRING, SEPARATOR_MARK } from 'shared/Constants';
 
 export const validateNumberNotRequired = (value: string) => {
-	const errors: string[] | null = [];
-	if (value && value !== DEFAULT_STRING && !/^[0-9]+$/i.test(value))
-		errors.push('May contain numbers.');
-	if (
-		value &&
-		value !== DEFAULT_STRING &&
-		(!Number.isInteger(parseInt(value)) || typeof parseInt(value) !== 'number')
-	)
-		errors.push('This must be a numbers.');
-	return errors.join(SEPARATOR_MARK);
+  const errors: string[] | null = [];
+  if (value && value !== DEFAULT_STRING && !/^[0-9]+$/i.test(value))
+    errors.push('May contain numbers.');
+  if (
+    value &&
+    value !== DEFAULT_STRING &&
+    (!Number.isInteger(parseInt(value)) || typeof parseInt(value) !== 'number')
+  )
+    errors.push('This must be a numbers.');
+  return errors.join(SEPARATOR_MARK);
 };

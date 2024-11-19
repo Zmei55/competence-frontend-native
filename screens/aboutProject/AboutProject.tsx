@@ -9,14 +9,14 @@ export const AboutProjectScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       {/* <Header /> */}
-      
+
       <Text>aboutProjectScreen</Text>
 
       {/* <Button onPress={() => navigate('Login')} title={'Login'} />
       <Button onPress={() => navigate('Register')} title={'Register'} /> */}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

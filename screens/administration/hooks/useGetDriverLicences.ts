@@ -1,19 +1,20 @@
-import { useAppDispatch, saveSnackbarError } from 'src/app';
+import { useAppDispatch } from 'screens/app';
+import { saveSnackbarError } from 'redux/app';
 import { useLazyGetAllDriverLicenceQuery, saveDriverLicences } from '..';
-import { customErrorHandler } from 'shared';
+import { customErrorHandler } from 'shared/helpers';
 
 export const useGetDriverLicences = () => {
-	const dispatch = useAppDispatch();
-	const [get] = useLazyGetAllDriverLicenceQuery();
+  const dispatch = useAppDispatch();
+  const [get] = useLazyGetAllDriverLicenceQuery();
 
-	const getDriverLicences = async () => {
-		try {
-			const driverLicences = await get().unwrap();
-			dispatch(saveDriverLicences(driverLicences));
-		} catch (error) {
-			dispatch(saveSnackbarError(customErrorHandler(error)));
-		}
-	};
+  const getDriverLicences = async () => {
+    try {
+      const driverLicences = await get().unwrap();
+      dispatch(saveDriverLicences(driverLicences));
+    } catch (error) {
+      dispatch(saveSnackbarError(customErrorHandler(error)));
+    }
+  };
 
-	return { getDriverLicences };
+  return { getDriverLicences };
 };

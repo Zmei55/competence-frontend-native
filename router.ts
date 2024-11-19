@@ -1,9 +1,11 @@
-import { StaticParamList  } from '@react-navigation/native';
+import { StaticParamList } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { HomeScreen } from 'screens/mainpages';
-import { LoginScreen } from './screens/auth/LoginScreen';
-import { RegisterScreen } from './screens/auth/RegisterScreen';
+import { useAppSelector } from 'screens/app';
+import { AboutProjectScreen } from 'screens/aboutProject';
+import { LoginScreen } from 'screens/auth/LoginScreen';
+import { RegisterScreen } from 'screens/auth/RegisterScreen';
+import { isAuthSelector } from './redux/auth';
 
 declare global {
   namespace ReactNavigation {
@@ -14,26 +16,28 @@ declare global {
 type RootStackParamList = StaticParamList<typeof RootStack>;
 
 const useIsSignedIn = () => {
-  const isSignedIn = true;
-  return isSignedIn;
-}
+  const isAuth = useAppSelector(isAuthSelector);
+  return isAuth;
+};
 
 const useIsSignedOut = () => {
-  const isSignedIn = false;
-  return !isSignedIn;
-}
+  const isAuth = useAppSelector(isAuthSelector);
+  return !isAuth;
+};
 
 export const RootStack = createNativeStackNavigator({
-  initialRouteName: 'Home',
-  screens: {
-    Home: {
-      screen: HomeScreen,
-      options: {
-        headerShown: false,
+  initialRouteName: 'Login',
+  groups: {
+    Common: {
+      screens: {
+        AboutProject: {
+          screen: AboutProjectScreen,
+          options: {
+            headerShown: false,
+          },
+        },
       },
     },
-  },
-  groups: {
     SignedOut: {
       if: useIsSignedOut,
       screens: {
@@ -54,6 +58,6 @@ export const RootStack = createNativeStackNavigator({
     SignedIn: {
       if: useIsSignedIn,
       screens: {},
-    }
-  }
-  });
+    },
+  },
+});

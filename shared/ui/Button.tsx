@@ -1,7 +1,10 @@
 import { ReactNode, FC } from 'react';
-import { Text } from 'react-native'
-import { Button as ButtonNative, ButtonProps as ButtonNativeProps } from 'react-native-paper';
-import { Colors, Theme } from '../theme';
+import { Text } from 'react-native';
+import {
+  Button as ButtonNative,
+  ButtonProps as ButtonNativeProps,
+} from 'react-native-paper';
+import { Colors, Theme } from 'shared/theme';
 
 type ButtonColorType = 'primary' | 'error';
 
@@ -35,14 +38,18 @@ export const Button: FC<ButtonProps> = ({
       }}
       {...rest}
     >
-      {children ?
-        children :
-        <Text style={{
-          fontSize: 16,
-          color: Colors[titleColor],
-        }}>{title}</Text>
-      }
-        
+      {children ? (
+        children
+      ) : (
+        <Text
+          style={{
+            fontSize: 16,
+            color: Colors[titleColor],
+          }}
+        >
+          {title}
+        </Text>
+      )}
     </ButtonNative>
-  )
-}
+  );
+};

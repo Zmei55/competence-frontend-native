@@ -37,55 +37,53 @@ import ru_admin from './locales/ru/ru_admin.json';
 import ru_feedback from './locales/ru/ru_feedback.json';
 import ru_aboutproject from './locales/ru/ru_aboutproject.json';
 
-i18n
-	.use(initReactI18next)
-	.init({
-		compatibilityJSON: 'v3',
-		lng: 'en',
-		resources: {
-			de: {
-				buttons: de_buttons,
-				header: de_header,
-				auth: de_auth,
-				profile: de_profile,
-				guides: de_guides,
-				competence: de_competence,
-				guarantee: de_guarantee,
-				footer: de_footer,
-				shared: de_shared,
-				admin: de_admin,
-				feedback: de_feedback,
-				aboutProject: de_aboutproject,
-			},
-			en: {
-				buttons: en_buttons,
-				header: en_header,
-				auth: en_auth,
-				profile: en_profile,
-				guides: en_guides,
-				competence: en_competence,
-				guarantee: en_guarantee,
-				footer: en_footer,
-				shared: en_shared,
-				admin: en_admin,
-				feedback: en_feedback,
-				aboutProject: en_aboutproject,
-			},
-			ru: {
-				buttons: ru_buttons,
-				header: ru_header,
-				auth: ru_auth,
-				profile: ru_profile,
-				guides: ru_guides,
-				competence: ru_competence,
-				guarantee: ru_guarantee,
-				footer: ru_footer,
-				shared: ru_shared,
-				admin: ru_admin,
-				feedback: ru_feedback,
-				aboutProject: ru_aboutproject,
-			},
-		},
-	});
+i18n.use(initReactI18next).init({
+  compatibilityJSON: 'v3',
+  lng: 'en',
+  resources: {
+    de: {
+      buttons: de_buttons,
+      header: de_header,
+      auth: de_auth,
+      profile: de_profile,
+      guides: de_guides,
+      competence: de_competence,
+      guarantee: de_guarantee,
+      footer: de_footer,
+      shared: de_shared,
+      admin: de_admin,
+      feedback: de_feedback,
+      aboutProject: de_aboutproject,
+    },
+    en: {
+      buttons: en_buttons,
+      header: en_header,
+      auth: en_auth,
+      profile: en_profile,
+      guides: en_guides,
+      competence: en_competence,
+      guarantee: en_guarantee,
+      footer: en_footer,
+      shared: en_shared,
+      admin: en_admin,
+      feedback: en_feedback,
+      aboutProject: en_aboutproject,
+    },
+    ru: {
+      buttons: ru_buttons,
+      header: ru_header,
+      auth: ru_auth,
+      profile: ru_profile,
+      guides: ru_guides,
+      competence: ru_competence,
+      guarantee: ru_guarantee,
+      footer: ru_footer,
+      shared: ru_shared,
+      admin: ru_admin,
+      feedback: ru_feedback,
+      aboutProject: ru_aboutproject,
+    },
+  },
+});
 
 export default i18n;

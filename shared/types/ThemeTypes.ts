@@ -9,5 +9,4 @@ export type ColorType =
   | 'competenceType'
   | 'orange'
   | 'orangeLight'
-  | 'orangeDark'
-;
+  | 'orangeDark';

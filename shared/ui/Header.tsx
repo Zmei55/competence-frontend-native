@@ -1,19 +1,19 @@
 import { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-import { Colors, Theme } from '../theme';
+import { Colors, Theme } from 'shared/theme';
 
-interface HeaderProps {};
+interface HeaderProps {}
 
 export const Header: React.FC<HeaderProps> = () => {
   const [isUserMenuVisible, setIsUserMenuVisible] = useState<boolean>(false);
 
   return (
-    <View id='layout' style={styles.header}>
+    <View id="layout" style={styles.header}>
       <Text style={styles.appTitle}>COMPETENCE CENTER</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   header: {

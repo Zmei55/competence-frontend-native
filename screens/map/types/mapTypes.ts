@@ -1,18 +1,18 @@
-import { TProfile } from 'src/features/profile';
+import { TProfile } from 'screens/profile';
 
 export type TUserDataMap = Pick<
-	TProfile,
-	'id' | 'nickName' | 'firstName' | 'lastName' | 'specialty' | 'statusInSchool'
+  TProfile,
+  'id' | 'nickName' | 'firstName' | 'lastName' | 'specialty' | 'statusInSchool'
 > & {
-	location: string;
-	avatarImage: string | null;
+  location: string;
+  avatarImage: string | null;
 };
 
 export type TMarkerData = Pick<
-	TProfile,
-	'id' | 'nickName' | 'firstName' | 'lastName' | 'specialty' | 'statusInSchool'
+  TProfile,
+  'id' | 'nickName' | 'firstName' | 'lastName' | 'specialty' | 'statusInSchool'
 > & {
-	lat: number;
-	lng: number;
-	avatarImage: string | null;
+  lat: number;
+  lng: number;
+  avatarImage: string | null;
 };

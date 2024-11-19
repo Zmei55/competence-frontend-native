@@ -9,8 +9,10 @@ type InputProps = TextInputProps & {
   isPassword?: boolean;
 };
 
-
-export const Input: React.FC<InputProps> = ({ isPassword = false, ...rest }) => {
+export const Input: React.FC<InputProps> = ({
+  isPassword = false,
+  ...rest
+}) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   return (
@@ -19,14 +21,17 @@ export const Input: React.FC<InputProps> = ({ isPassword = false, ...rest }) => 
         style={{
           height: 50,
         }}
-        mode='outlined'
+        mode="outlined"
         outlineColor={Colors.primary}
         activeOutlineColor={Colors.primaryDark}
         secureTextEntry={isPassword && !isPasswordVisible}
         {...rest}
       />
       {isPassword && (
-        <Pressable onPress={() => setIsPasswordVisible(state => !state)} style={styles.eyeIcon}>
+        <Pressable
+          onPress={() => setIsPasswordVisible(state => !state)}
+          style={styles.eyeIcon}
+        >
           {isPasswordVisible ? <EyeOpeningIcon /> : <EyeClosedIcon />}
         </Pressable>
       )}
@@ -42,4 +47,4 @@ const styles = StyleSheet.create({
     height: Theme.spacing(6),
     width: Theme.spacing(6),
   },
-})
+});

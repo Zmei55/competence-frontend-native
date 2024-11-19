@@ -1,3 +1,3 @@
 export type TResetState = {
-	errorMessage: string | null;
+  errorMessage: string | null;
 };
