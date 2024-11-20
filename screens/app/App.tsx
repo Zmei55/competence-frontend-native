@@ -8,8 +8,8 @@ import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
 import { PaperProvider } from 'react-native-paper';
 
-import { store } from './redux/store';
-import { RootStack } from './router';
+import { store } from '../../redux/store';
+import { RootStack } from '../../router';
 import i18n from 'shared/i18next/i18n';
 
 export default function App() {

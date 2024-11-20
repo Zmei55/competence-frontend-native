@@ -11,45 +11,33 @@ type ButtonColorType = 'primary' | 'error';
 type TitleColorType = 'text' | 'white';
 
 interface ButtonProps extends Omit<ButtonNativeProps, 'children'> {
-  title: string;
   buttonColor?: ButtonColorType;
   titleColor?: TitleColorType;
   children?: ReactNode;
 }
 
 export const Button: FC<ButtonProps> = ({
-  title,
   buttonColor,
   titleColor = 'text',
-  mode = 'contained',
+  mode = 'elevated',
   children,
-  onPress,
   ...rest
 }) => {
   return (
     <ButtonNative
+      mode={mode}
+      buttonColor={buttonColor ? Colors[buttonColor] : undefined}
+      textColor={Colors[titleColor]}
       style={{
         alignItems: 'center',
         justifyContent: 'center',
         height: 50,
-        backgroundColor: buttonColor ? Colors[buttonColor] : undefined,
         borderRadius: Theme.spacing(2),
         paddingHorizontal: Theme.spacing(4),
       }}
       {...rest}
     >
-      {children ? (
-        children
-      ) : (
-        <Text
-          style={{
-            fontSize: 16,
-            color: Colors[titleColor],
-          }}
-        >
-          {title}
-        </Text>
-      )}
+      {children}
     </ButtonNative>
   );
 };

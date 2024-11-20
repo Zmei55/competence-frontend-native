@@ -17,6 +17,7 @@ type RootStackParamList = StaticParamList<typeof RootStack>;
 
 const useIsSignedIn = () => {
   const isAuth = useAppSelector(isAuthSelector);
+  console.log('useIsSignedIn ~ isAuth:', isAuth);
   return isAuth;
 };
 
