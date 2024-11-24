@@ -4,16 +4,21 @@ type User = {
   lastName: string | null;
   email: string;
   nickName: string;
-  password: string;
   roles: string[];
   avatarImageData: string | null;
 };
 
 export type TUser = Omit<User, 'password'>;
 
-export type TCredentials = Pick<User, 'email' | 'password'>;
+export type TCredentials = {
+  email?: string;
+  password?: string;
+};
 
-export type TNewUser = Pick<User, 'email' | 'password' | 'nickName'>;
+export type TRegisterForm = TCredentials & {
+  nickName?: string;
+  passwordRepeat?: string;
+};
 
 export type TAuthState = {
   authChecked: boolean;

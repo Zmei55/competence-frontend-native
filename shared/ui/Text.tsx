@@ -1,26 +1,21 @@
 import { Text as TextNative, TextProps as TextPropsNative } from 'react-native';
 import { Colors } from 'shared/theme';
 
-type TextProps = TextPropsNative & {
-  color?: 'text' | 'white';
+enum TextSize {
+  title = 40,
+  subtitle = 30,
+  body = 20,
+  bodySmall = 10,
+}
+
+type CustomTextProps = Omit<TextPropsNative, 'children'> & {
+  color?: 'text' | 'white' | 'error';
+  variant?: 'title' | 'subtitle' | 'body' | 'bodySmall';
   children: string;
 };
 
-type TitleTextProps = TextProps & {
-  title?: boolean;
-  subtitle?: never;
-};
-
-type SubtitleTextProps = TextProps & {
-  subtitle?: boolean;
-  title?: never;
-};
-
-type CustomTextProps = TitleTextProps | SubtitleTextProps;
-
 export const Text: React.FC<CustomTextProps> = ({
-  title = false,
-  subtitle = false,
+  variant = 'body',
   color = 'text',
   children,
   ...rest
@@ -28,7 +23,7 @@ export const Text: React.FC<CustomTextProps> = ({
   return (
     <TextNative
       style={{
-        fontSize: title ? 40 : subtitle ? 30 : 20,
+        fontSize: TextSize[variant],
         color: Colors[color],
       }}
       {...rest}

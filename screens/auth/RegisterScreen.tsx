@@ -7,7 +7,9 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { TRegisterForm } from 'screens/auth';
 import {
   Text,
   Input,
@@ -17,12 +19,28 @@ import {
 } from 'shared/ui';
 import { Colors, Theme } from 'shared/theme';
 import { useShowKeyboard } from 'shared/hooks';
+import { validateEmailSchemaRequired } from 'shared/validateSchemas';
 
 export const RegisterScreen: React.FC = () => {
   const { navigate } = useNavigation();
   const { t } = useTranslation(['auth', 'buttons']);
   const { isShowKeyboard, setIsShowKeyboardTrue, setIsShowKeyboardFalse } =
     useShowKeyboard();
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TRegisterForm>({
+    defaultValues: {
+      email: undefined,
+      nickName: undefined,
+      password: undefined,
+      passwordRepeat: undefined,
+    },
+  });
+
+  const onSubmit: SubmitHandler<TRegisterForm> = data => console.log({ data });
 
   function keyboardHide() {
     setIsShowKeyboardFalse();
@@ -44,12 +62,12 @@ export const RegisterScreen: React.FC = () => {
             }}
           >
             <View style={styles.titleContainer}>
-              <Text title textBreakStrategy="balanced">
+              <Text variant="title" textBreakStrategy="balanced">
                 {t('register')}
               </Text>
 
               <Pressable onPress={() => navigate('Login')}>
-                <Text style={styles.link}>Login?</Text>
+                <Text style={styles.link}>{t('loginContinue')}</Text>
               </Pressable>
             </View>
 
@@ -59,19 +77,43 @@ export const RegisterScreen: React.FC = () => {
                 gap: isShowKeyboard ? Theme.spacing(2) : Theme.spacing(4),
               }}
             >
-              <Input label={t('email')} onFocus={setIsShowKeyboardTrue} />
-
-              <Input label={t('nickName')} onFocus={setIsShowKeyboardTrue} />
+              <Input
+                name="email"
+                control={control}
+                label={t('email')}
+                required
+                errors={errors.email}
+                keyboardType="email-address"
+                onFocus={setIsShowKeyboardTrue}
+                validate={validateEmailSchemaRequired}
+              />
 
               <Input
-                isPassword
-                label={t('password')}
+                name="nickName"
+                control={control}
+                label={t('nickName')}
+                required
+                errors={errors.nickName}
                 onFocus={setIsShowKeyboardTrue}
               />
 
               <Input
+                name="password"
+                control={control}
+                label={t('password')}
+                required
                 isPassword
+                errors={errors.password}
+                onFocus={setIsShowKeyboardTrue}
+              />
+
+              <Input
+                name="passwordRepeat"
+                control={control}
                 label={t('passwordRepeat')}
+                required
+                isPassword
+                errors={errors.passwordRepeat}
                 onFocus={setIsShowKeyboardTrue}
               />
             </View>
@@ -79,7 +121,7 @@ export const RegisterScreen: React.FC = () => {
             <Button
               buttonColor="primary"
               titleColor="white"
-              onPress={() => handleSubmitButton()}
+              onPress={handleSubmit(onSubmit)}
             >
               {t('buttons:register')}
             </Button>
