@@ -1,9 +1,15 @@
-import { SEPARATOR_MARK } from 'shared/Constants';
+import { FieldValues, RegisterOptions } from 'react-hook-form';
 
-export const validateNameRequired = (value: string) => {
-  const errors: string[] | null = [];
-  if (!value) errors.push('This field is required.');
-  if (!/^[A-ZА-ЯЁäöüß -]+$/i.test(value)) errors.push('May contain letters.');
-  if (typeof value !== 'string') errors.push('This must be a string.');
-  return errors.join(SEPARATOR_MARK);
+export const validateNameRequired: Omit<
+  RegisterOptions<FieldValues, string>,
+  'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
+> = {
+  required: {
+    value: true,
+    message: 'This field is required.',
+  },
+  pattern: {
+    value: /^[A-ZА-ЯЁäöüß -]+$/i,
+    message: 'May contain letters.',
+  },
 };

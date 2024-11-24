@@ -1,13 +1,11 @@
-import { DEFAULT_STRING, SEPARATOR_MARK } from 'shared/Constants';
+import { FieldValues, RegisterOptions } from 'react-hook-form';
 
-export const validateStringAndNumberNotRequired = (value: string) => {
-  const errors: string[] | null = [];
-  if (
-    value &&
-    !/^[A-ZА-ЯЁäöüß0-9(), ._%+-]+$/i.test(value) &&
-    value !== DEFAULT_STRING
-  )
-    errors.push('May contain letters and numbers.');
-  if (value && typeof value !== 'string') errors.push('This must be a string.');
-  return errors.join(SEPARATOR_MARK);
+export const validateStringAndNumberNotRequired: Omit<
+  RegisterOptions<FieldValues, string>,
+  'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
+> = {
+  pattern: {
+    value: /^[A-ZА-ЯЁäöüß0-9(), ._%+-]+$/i,
+    message: 'May contain letters and numbers.',
+  },
 };

@@ -1,10 +1,19 @@
-import { SEPARATOR_MARK } from 'shared/Constants';
+import { FieldValues, RegisterOptions } from 'react-hook-form';
 
-export const validateEmailSchemaRequired = (value: string) => {
-  const errors: string[] | null = [];
-  if (!value) errors.push('This field is required.');
-  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value))
-    errors.push('Invalid email address.');
-  if (value.length < 3) errors.push('Is too short: 3 characters minimum.');
-  return errors.join(SEPARATOR_MARK);
+export const validateEmailSchemaRequired: Omit<
+  RegisterOptions<FieldValues, string>,
+  'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
+> = {
+  required: {
+    value: true,
+    message: 'This field is required.',
+  },
+  pattern: {
+    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+    message: 'Invalid email address.',
+  },
+  minLength: {
+    value: 3,
+    message: 'Is too short: 3 characters minimum.',
+  },
 };
