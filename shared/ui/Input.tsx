@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { TextInput as TextInputRNP, TextInputProps } from 'react-native-paper';
 import {
@@ -45,8 +45,6 @@ export const Input: FC<InputProps> = ({
     defaultValue: defaultValue,
     rules: validate,
   });
-
-  console.log('errors: ', errors);
 
   return (
     <View>

@@ -1,28 +1,31 @@
 import { api } from '../app/api';
-import { TUser, TNewUser } from 'screens/auth/types';
-import { TPassword } from 'screens/auth/types/passwordTypes';
+import { TUser, TNewUser, TCredentials } from 'screens/auth';
+import { TPassword } from 'screens/auth';
 
 const authApi = api.injectEndpoints({
   endpoints: builder => ({
-    login: builder.mutation<string, { email: string; password: string }>({
-      query: (credentials: { email: string; password: string }) => ({
-        url: '/api/auth/login',
+    login: builder.mutation<string, TCredentials>({
+      query: ({ email, password }) => ({
+        url: '/auth/login',
         method: 'POST',
-        body: credentials,
+        body: {
+          email,
+          password,
+        },
       }),
       invalidatesTags: ['auth'],
       transformResponse: (response: { message: string }) => response.message,
     }),
     logout: builder.query<void, void>({
       query: () => ({
-        url: '/api/auth/logout',
+        url: '/auth/logout',
         method: 'PUT',
       }),
       providesTags: ['auth'],
     }),
     register: builder.mutation<TUser, TNewUser>({
       query: newUser => ({
-        url: '/api/auth/register',
+        url: '/auth/register',
         method: 'POST',
         body: newUser,
       }),
@@ -31,7 +34,7 @@ const authApi = api.injectEndpoints({
     }),
     getCurrentUser: builder.query<TUser, null>({
       query: () => ({
-        url: '/api/user/me',
+        url: '/user/me',
         method: 'GET',
       }),
       providesTags: ['auth'],
@@ -39,7 +42,7 @@ const authApi = api.injectEndpoints({
     }),
     resetPassword: builder.mutation<string, TPassword>({
       query: data => ({
-        url: '/api/user/password-reset',
+        url: '/user/password-reset',
         method: 'PUT',
         body: data,
       }),
@@ -48,7 +51,7 @@ const authApi = api.injectEndpoints({
     }),
     deleteCurrentAccount: builder.mutation<void, void>({
       query: () => ({
-        url: '/api/user/delete',
+        url: '/user/delete',
         method: 'DELETE',
       }),
       invalidatesTags: ['auth'],

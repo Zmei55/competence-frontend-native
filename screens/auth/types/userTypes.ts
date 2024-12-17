@@ -8,7 +8,11 @@ type User = {
   avatarImageData: string | null;
 };
 
-export type TUser = Omit<User, 'password'>;
+export type TUser = User;
+
+export type TNewUser = Pick<User, 'email' | 'nickName'> & {
+  password: string;
+};
 
 export type TCredentials = {
   email?: string;

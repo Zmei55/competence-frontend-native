@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "competence-frontend-native",
+    "name": "Competence Center App",
     "slug": "competence-frontend-native",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -20,9 +20,6 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }

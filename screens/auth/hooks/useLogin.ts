@@ -15,11 +15,12 @@ export const useLogin = () => {
   const [login, { isLoading: isLoginLoading }] = useLoginMutation();
 
   const handleLogin = async (data: TCredentials) => {
+    if (!data.email || !data.password) {
+      return null;
+    }
+
     try {
-      const loginResponse = await login({
-        email: data.email,
-        password: data.password,
-      }).unwrap();
+      const loginResponse = await login(data).unwrap();
       dispatch(loginSuccess(loginResponse));
       dispatch(resetLoginErrorMessage());
 

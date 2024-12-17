@@ -1,7 +1,6 @@
 import {
   StyleSheet,
   View,
-  Pressable,
   Keyboard,
   TouchableWithoutFeedback,
 } from 'react-native';
@@ -9,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { TCredentials } from 'screens/auth';
+import { TCredentials, useLogin } from 'screens/auth';
 import {
   Text,
   Input,
@@ -19,13 +18,13 @@ import {
 } from 'shared/ui';
 import { Colors, Theme } from 'shared/theme';
 import { useShowKeyboard } from 'shared/hooks';
-import { validateEmailSchemaRequired } from 'shared/validateSchemas';
 
 export const LoginScreen: React.FC = () => {
   const { navigate } = useNavigation();
   const { t } = useTranslation(['auth', 'buttons']);
   const { isShowKeyboard, setIsShowKeyboardTrue, setIsShowKeyboardFalse } =
     useShowKeyboard();
+  const { handleLogin, isLoginLoading } = useLogin();
 
   const {
     control,
@@ -38,7 +37,9 @@ export const LoginScreen: React.FC = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<TCredentials> = data => console.log({ data });
+  const onSubmit: SubmitHandler<TCredentials> = data => {
+    handleLogin(data);
+  };
 
   function keyboardHide() {
     setIsShowKeyboardFalse();
@@ -62,9 +63,9 @@ export const LoginScreen: React.FC = () => {
             <View style={styles.titleContainer}>
               <Text variant="title">{t('login')}</Text>
 
-              <Pressable onPress={() => navigate('Register')}>
+              {/* <Pressable onPress={() => navigate('Register')}>
                 <Text style={styles.link}>{t('registerContinue')}</Text>
-              </Pressable>
+              </Pressable> */}
             </View>
 
             <View style={styles.inputContainer}>
@@ -77,7 +78,6 @@ export const LoginScreen: React.FC = () => {
                   errors={errors.email}
                   keyboardType="email-address"
                   onFocus={setIsShowKeyboardTrue}
-                  validate={validateEmailSchemaRequired}
                 />
               </View>
 
