@@ -12,6 +12,8 @@ export const useRegister = () => {
   const [register, { isLoading: isRegisterLoading }] = useRegisterMutation();
 
   const handleRegister = async (data: TRegisterForm) => {
+    if (!data.email || !data.password || !data.nickName) return null;
+
     const newUser: TNewUser = {
       email: data.email.trim(),
       password: data.password.trim(),

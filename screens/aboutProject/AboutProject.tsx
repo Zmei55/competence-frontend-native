@@ -1,7 +1,7 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Header } from 'shared/ui';
+// import { Header } from 'shared/ui';
 
 export const AboutProjectScreen: React.FC = () => {
   const { t } = useTranslation(['aboutProject', 'buttons']);
