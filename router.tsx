@@ -2,10 +2,10 @@ import { StaticParamList } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { useAppSelector } from 'screens/app';
-import { AboutProjectScreen } from 'screens/aboutProject';
 import { LoginScreen } from 'screens/auth/LoginScreen';
 import { RegisterScreen } from 'screens/auth/RegisterScreen';
 import { isAuthSelector } from './redux/auth';
+import { HomePageScreen } from 'screens/homePage/HomePage';
 
 declare global {
   namespace ReactNavigation {
@@ -31,11 +31,8 @@ export const RootStack = createNativeStackNavigator({
   groups: {
     Common: {
       screens: {
-        AboutProject: {
-          screen: AboutProjectScreen,
-          options: {
-            headerShown: false,
-          },
+        HomePage: {
+          screen: HomePageScreen,
         },
       },
     },
@@ -44,15 +41,9 @@ export const RootStack = createNativeStackNavigator({
       screens: {
         Login: {
           screen: LoginScreen,
-          options: {
-            headerShown: false,
-          },
         },
         Register: {
           screen: RegisterScreen,
-          options: {
-            headerShown: false,
-          },
         },
       },
     },
