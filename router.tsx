@@ -2,9 +2,9 @@ import { StaticParamList } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { useAppSelector } from 'screens/app';
+import { isAuthSelector } from 'redux/auth';
 import { LoginScreen } from 'screens/auth/LoginScreen';
 import { RegisterScreen } from 'screens/auth/RegisterScreen';
-import { isAuthSelector } from './redux/auth';
 import { HomePageScreen } from 'screens/homePage/HomePage';
 
 declare global {
