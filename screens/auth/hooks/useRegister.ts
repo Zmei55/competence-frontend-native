@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { useAppDispatch } from 'screens/app';
 import { useRegisterMutation } from 'redux/auth/authApi';
 import {
@@ -9,6 +10,7 @@ import { customErrorHandler } from 'shared/helpers';
 
 export const useRegister = () => {
   const dispatch = useAppDispatch();
+  const { navigate } = useNavigation();
   const [register, { isLoading: isRegisterLoading }] = useRegisterMutation();
 
   const handleRegister = async (data: TRegisterForm) => {
@@ -24,6 +26,7 @@ export const useRegister = () => {
       await register(newUser).unwrap();
 
       dispatch(resetRegisterErrorMessage());
+      navigate('Login');
     } catch (error) {
       dispatch(saveRegisterErrorMessage(customErrorHandler(error)));
     }

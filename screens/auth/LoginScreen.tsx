@@ -1,6 +1,7 @@
 import {
   StyleSheet,
   View,
+  Pressable,
   Keyboard,
   TouchableWithoutFeedback,
 } from 'react-native';
@@ -13,8 +14,8 @@ import {
   Text,
   Input,
   Button,
-  AppContainer,
   KeyboardAvoidingContainer,
+  Spinner,
 } from 'shared/ui';
 import { Colors, Theme } from 'shared/theme';
 import { useShowKeyboard } from 'shared/hooks';
@@ -29,17 +30,13 @@ export const LoginScreen: React.FC = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = useForm<TCredentials>({
     defaultValues: {
       email: undefined,
       password: undefined,
     },
   });
-
-  const onSubmit: SubmitHandler<TCredentials> = data => {
-    handleLogin(data);
-  };
 
   function keyboardHide() {
     setIsShowKeyboardFalse();
@@ -50,58 +47,65 @@ export const LoginScreen: React.FC = () => {
     keyboardHide();
   }
 
+  const onSubmit: SubmitHandler<TCredentials> = data => {
+    handleLogin(data);
+    handleSubmitButton();
+  };
+
   return (
     <TouchableWithoutFeedback onPress={keyboardHide}>
-      <AppContainer>
-        <KeyboardAvoidingContainer>
-          <View
-            style={{
-              ...styles.content,
-              gap: isShowKeyboard ? Theme.spacing(5) : Theme.spacing(10),
-            }}
-          >
-            <View style={styles.titleContainer}>
-              <Text variant="title">{t('login')}</Text>
+      <KeyboardAvoidingContainer>
+        <View
+          style={{
+            ...styles.content,
+            gap: isShowKeyboard ? Theme.spacing(5) : Theme.spacing(10),
+          }}
+        >
+          <View style={styles.titleContainer}>
+            <Text variant="title">{t('login')}</Text>
 
-              {/* <Pressable onPress={() => navigate('Register')}>
-                <Text style={styles.link}>{t('registerContinue')}</Text>
-              </Pressable> */}
-            </View>
-
-            <View style={styles.inputContainer}>
-              <View>
-                <Input
-                  name="email"
-                  control={control}
-                  label={t('email')}
-                  required
-                  errors={errors.email}
-                  keyboardType="email-address"
-                  onFocus={setIsShowKeyboardTrue}
-                />
-              </View>
-
-              <Input
-                name="password"
-                control={control}
-                label={t('password')}
-                required
-                isPassword
-                errors={errors.password}
-                onFocus={setIsShowKeyboardTrue}
-              />
-            </View>
-
-            <Button
-              onPress={handleSubmit(onSubmit)}
-              buttonColor="primary"
-              titleColor="white"
-            >
-              {t('buttons:login')}
-            </Button>
+            <Pressable onPress={() => navigate('Register')}>
+              <Text style={styles.link}>{t('registerContinue')}</Text>
+            </Pressable>
           </View>
-        </KeyboardAvoidingContainer>
-      </AppContainer>
+
+          <View style={styles.inputContainer}>
+            <Input
+              name="email"
+              control={control}
+              label={t('email')}
+              required
+              errors={errors.email}
+              keyboardType="email-address"
+              onFocus={setIsShowKeyboardTrue}
+            />
+
+            <Input
+              name="password"
+              control={control}
+              label={t('password')}
+              required
+              isPassword
+              errors={errors.password}
+              onFocus={setIsShowKeyboardTrue}
+            />
+          </View>
+
+          <Button
+            style={styles.loginButton}
+            onPress={handleSubmit(onSubmit)}
+            buttonColor="primary"
+            titleColor="white"
+            disabled={!isDirty}
+          >
+            {isLoginLoading ? (
+              <Spinner color="white" />
+            ) : (
+              <Text color="white">{t('buttons:login')}</Text>
+            )}
+          </Button>
+        </View>
+      </KeyboardAvoidingContainer>
     </TouchableWithoutFeedback>
   );
 };
@@ -128,5 +132,8 @@ const styles = StyleSheet.create({
     color: Colors.link,
     textDecorationLine: 'underline',
     textDecorationColor: Colors.link,
+  },
+  loginButton: {
+    width: 100,
   },
 });

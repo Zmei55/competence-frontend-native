@@ -24,7 +24,7 @@ export const useLogin = () => {
       dispatch(loginSuccess(loginResponse));
       dispatch(resetLoginErrorMessage());
 
-      // navigate('/');
+      navigate('HomePage');
     } catch (error) {
       const errorMessage = customErrorHandler(error);
       if (errorMessage === 'Bad credentials') {

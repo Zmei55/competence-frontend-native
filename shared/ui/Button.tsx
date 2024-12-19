@@ -1,5 +1,3 @@
-import { ReactNode, FC } from 'react';
-import { Text } from 'react-native';
 import {
   Button as ButtonNative,
   ButtonProps as ButtonNativeProps,
@@ -7,17 +5,15 @@ import {
 import { Colors, Theme } from 'shared/theme';
 
 type ButtonColorType = 'primary' | 'error';
-
 type TitleColorType = 'text' | 'white';
 
-interface ButtonProps extends Omit<ButtonNativeProps, 'children'> {
+interface ButtonProps extends ButtonNativeProps {
   buttonColor?: ButtonColorType;
   titleColor?: TitleColorType;
-  children?: ReactNode;
 }
 
-export const Button: FC<ButtonProps> = ({
-  buttonColor,
+export const Button: React.FC<ButtonProps> = ({
+  buttonColor = 'primary',
   titleColor = 'text',
   mode = 'elevated',
   children,
@@ -26,16 +22,16 @@ export const Button: FC<ButtonProps> = ({
   return (
     <ButtonNative
       mode={mode}
-      buttonColor={buttonColor ? Colors[buttonColor] : undefined}
+      buttonColor={Colors[buttonColor]}
       textColor={Colors[titleColor]}
+      {...rest}
       style={{
         alignItems: 'center',
         justifyContent: 'center',
-        height: 50,
+        height: 45,
         borderRadius: Theme.spacing(2),
         paddingHorizontal: Theme.spacing(4),
       }}
-      {...rest}
     >
       {children}
     </ButtonNative>

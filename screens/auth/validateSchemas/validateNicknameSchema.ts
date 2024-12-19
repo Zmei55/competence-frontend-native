@@ -1,12 +1,20 @@
-import { SEPARATOR_MARK } from 'shared/Constants';
+import { FieldValues, RegisterOptions } from 'react-hook-form';
 
-export const validateNicknameSchema = (value: string) => {
-  const errors: string[] | null = [];
-  if (!value) errors.push('This field is required.');
-  if (!/^[A-ZА-ЯЁ0-9 ._%+-]+$/i.test(value))
-    errors.push(
-      'May contain Latin letters, numbers and special characters "!#$@%_".'
-    );
-  if (value.length < 3) errors.push('Is too short: 3 characters minimum.');
-  return errors.join(SEPARATOR_MARK);
+export const validateNicknameSchema: Omit<
+  RegisterOptions<FieldValues, string>,
+  'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
+> = {
+  required: {
+    value: true,
+    message: 'This field is required.',
+  },
+  pattern: {
+    value: /^[A-ZА-ЯЁ0-9 ._%+-]+$/i,
+    message:
+      'May contain Latin letters, numbers and special characters "!#$@%_".',
+  },
+  minLength: {
+    value: 3,
+    message: 'Is too short: 3 characters minimum.',
+  },
 };
