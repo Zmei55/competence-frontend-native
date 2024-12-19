@@ -1,7 +1,7 @@
 import { TNewCompetence } from '.';
 
 export type TSoftSkill = {
-	id: number;
+  id: number;
 };
 
 export type TNewSoftSkill = TNewCompetence;

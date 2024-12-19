@@ -1,27 +1,27 @@
-import { useAppDispatch } from 'src/app';
+import { useAppDispatch } from 'screens/app';
+import { useLazyGetCurrentUserProfileQuery } from 'redux/profile/profileApi';
 import {
-	useLazyGetCurrentUserProfileQuery,
-	saveProfile,
-	saveProfileError,
-	resetProfileError,
-} from '..';
-import { customErrorHandler } from 'shared';
+  saveProfile,
+  saveProfileError,
+  resetProfileError,
+} from 'redux/profile';
+import { customErrorHandler } from 'shared/helpers';
 
 export const useGetCurrentUserProfile = () => {
-	const dispatch = useAppDispatch();
-	const [getUserProfile, { isFetching: isCurrentUserProfileLoading }] =
-		useLazyGetCurrentUserProfileQuery();
+  const dispatch = useAppDispatch();
+  const [getUserProfile, { isFetching: isCurrentUserProfileLoading }] =
+    useLazyGetCurrentUserProfileQuery();
 
-	const handleGetCurrentUserProfile = async () => {
-		try {
-			const gottenUserProfile = await getUserProfile().unwrap();
-			dispatch(saveProfile(gottenUserProfile));
+  const handleGetCurrentUserProfile = async () => {
+    try {
+      const gottenUserProfile = await getUserProfile().unwrap();
+      dispatch(saveProfile(gottenUserProfile));
 
-			dispatch(resetProfileError());
-		} catch (error) {
-			dispatch(saveProfileError(customErrorHandler(error)));
-		}
-	};
+      dispatch(resetProfileError());
+    } catch (error) {
+      dispatch(saveProfileError(customErrorHandler(error)));
+    }
+  };
 
-	return { handleGetCurrentUserProfile, isCurrentUserProfileLoading };
+  return { handleGetCurrentUserProfile, isCurrentUserProfileLoading };
 };

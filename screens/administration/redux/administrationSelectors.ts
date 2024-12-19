@@ -1,4 +1,4 @@
-import { RootState } from 'src/app/redux';
+import { RootState } from 'redux/store';
 
 export const administrationSelector = (state: RootState): boolean =>
-	state.administration.administration;
+  state.administration.administration;

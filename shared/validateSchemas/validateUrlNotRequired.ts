@@ -1,8 +1,11 @@
-import { SEPARATOR_MARK } from 'shared';
+import { FieldValues, RegisterOptions } from 'react-hook-form';
 
-export const validateUrlNotRequired = (value: string) => {
-	const errors: string[] | null = [];
-	if (value && !/(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+/gi.test(value.trim()))
-		errors.push('The url format does not match.');
-	return errors.join(SEPARATOR_MARK);
+export const validateUrlNotRequired: Omit<
+  RegisterOptions<FieldValues, string>,
+  'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
+> = {
+  pattern: {
+    value: /(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+/gi,
+    message: 'The url format does not match.',
+  },
 };

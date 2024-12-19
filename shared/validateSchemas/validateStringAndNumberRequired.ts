@@ -1,10 +1,15 @@
-import { DEFAULT_STRING, SEPARATOR_MARK } from 'shared';
+import { FieldValues, RegisterOptions } from 'react-hook-form';
 
-export const validateStringAndNumberRequired = (value: string) => {
-	const errors: string[] | null = [];
-	if (!value) errors.push('This field is required.');
-	if (!/^[A-ZА-ЯЁäöüß0-9(), ._%+-]+$/i.test(value) && value !== DEFAULT_STRING)
-		errors.push('May contain letters and numbers.');
-	if (typeof value !== 'string') errors.push('This must be a string.');
-	return errors.join(SEPARATOR_MARK);
+export const validateStringAndNumberRequired: Omit<
+  RegisterOptions<FieldValues, string>,
+  'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
+> = {
+  required: {
+    value: true,
+    message: 'This field is required.',
+  },
+  pattern: {
+    value: /^[A-ZА-ЯЁäöüß0-9(), ._%+-]+$/i,
+    message: 'May contain letters and numbers.',
+  },
 };

@@ -1,7 +1,11 @@
-import { DEFAULT_STRING, SEPARATOR_MARK } from 'shared';
+import { FieldValues, RegisterOptions } from 'react-hook-form';
 
-export const validateRequired = (value: string) => {
-	const errors: string[] | null = [];
-	if (!value || value === DEFAULT_STRING) errors.push('This field is required.');
-	return errors.join(SEPARATOR_MARK);
+export const validateRequired: Omit<
+  RegisterOptions<FieldValues, string>,
+  'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
+> = {
+  required: {
+    value: true,
+    message: 'This field is required.',
+  },
 };

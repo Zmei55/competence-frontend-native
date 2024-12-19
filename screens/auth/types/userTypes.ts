@@ -1,25 +1,34 @@
 type User = {
-	id: number | string;
-	firstName: string | null;
-	lastName: string | null;
-	email: string;
-	nickName: string;
-	password: string;
-	roles: string[];
-	avatarImageData: string | null;
+  id: number | string;
+  firstName: string | null;
+  lastName: string | null;
+  email: string;
+  nickName: string;
+  roles: string[];
+  avatarImageData: string | null;
 };
 
-export type TUser = Omit<User, 'password'>;
+export type TUser = User;
 
-export type TCredentials = Pick<User, 'email' | 'password'>;
+export type TNewUser = Pick<User, 'email' | 'nickName'> & {
+  password: string;
+};
 
-export type TNewUser = Pick<User, 'email' | 'password' | 'nickName'>;
+export type TCredentials = {
+  email?: string;
+  password?: string;
+};
+
+export type TRegisterForm = TCredentials & {
+  nickName?: string;
+  passwordRepeat?: string;
+};
 
 export type TAuthState = {
-	authChecked: boolean;
-	isAuthLoading: boolean;
-	user: TUser | null;
-	loginErrorMessage: string | null;
-	registerErrorMessage: string | null;
-	errorMessage: string | null;
+  authChecked: boolean;
+  isAuthLoading: boolean;
+  user: TUser | null;
+  loginErrorMessage: string | null;
+  registerErrorMessage: string | null;
+  errorMessage: string | null;
 };

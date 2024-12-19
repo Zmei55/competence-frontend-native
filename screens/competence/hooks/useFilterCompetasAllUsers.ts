@@ -1,58 +1,77 @@
 import { useState } from 'react';
-import { TCompetenceFeed, TFilterCompetasAllUsers, THandleCompetasAllUsersFilter } from '../types';
-import { DEFAULT_STRING, HARDSKILL, JOB } from 'shared';
+import {
+  TCompetenceFeed,
+  TFilterCompetasAllUsers,
+  THandleCompetasAllUsersFilter,
+} from '..';
+import { DEFAULT_STRING, HARDSKILL, JOB } from 'shared/Constants';
 
-export const useFilterCompetasAllUsers = (initialCompetas: TCompetenceFeed[] | null) => {
-	const [filterState, setFilterState] = useState<TFilterCompetasAllUsers>({
-		title: ''.trim(),
-		type: '',
-		industry: '',
-		author: '',
-	});
+export const useFilterCompetasAllUsers = (
+  initialCompetas: TCompetenceFeed[] | null
+) => {
+  const [filterState, setFilterState] = useState<TFilterCompetasAllUsers>({
+    title: ''.trim(),
+    type: '',
+    industry: '',
+    author: '',
+  });
 
-	const handleFilterCompetasAllUsers = ({
-		target: { name, value },
-	}: THandleCompetasAllUsersFilter) => {
-		setFilterState((prev) => ({ ...prev, [name]: value }));
-	};
+  const handleFilterCompetasAllUsers = ({
+    target: { name, value },
+  }: THandleCompetasAllUsersFilter) => {
+    setFilterState(prev => ({ ...prev, [name]: value }));
+  };
 
-	let filteredCompetas: TCompetenceFeed[] | string | null = initialCompetas;
+  let filteredCompetas: TCompetenceFeed[] | string | null = initialCompetas;
 
-	if (filteredCompetas && typeof filteredCompetas !== 'string') {
-		if (filterState.title !== DEFAULT_STRING) {
-			filteredCompetas = filteredCompetas.filter((c) =>
-				c.title?.toLowerCase().includes(filterState.title.toLowerCase())
-			);
-		}
-		if (filterState.type === HARDSKILL) {
-			filteredCompetas = filteredCompetas.filter((c) => c.competaType.slice(0, 10) === HARDSKILL);
-		}
-		if (filterState.type !== DEFAULT_STRING && filterState.type !== HARDSKILL) {
-			filteredCompetas = filteredCompetas.filter((c) => c.competaType === filterState.type);
-		}
-		if (filterState.industry !== DEFAULT_STRING) {
-			filteredCompetas = filteredCompetas
-				.filter((c) => c.competaType === JOB)
-				.filter((c) => (c.jobSkill ? c.jobSkill.industryId === filterState.industry : null));
-		}
-		if (filterState.author !== DEFAULT_STRING) {
-			const [authorFirstName, authorLastName] = filterState.author.toLowerCase().split(' ');
-			filteredCompetas = filteredCompetas.filter(
-				(c) =>
-					c.authorFirstName.toLowerCase().includes(authorFirstName) &&
-					c.authorLastName.toLowerCase().includes(authorLastName)
-			);
-		}
-	}
+  if (filteredCompetas && typeof filteredCompetas !== 'string') {
+    if (filterState.title !== DEFAULT_STRING) {
+      filteredCompetas = filteredCompetas.filter(c =>
+        c.title?.toLowerCase().includes(filterState.title.toLowerCase())
+      );
+    }
+    if (filterState.type === HARDSKILL) {
+      filteredCompetas = filteredCompetas.filter(
+        c => c.competaType.slice(0, 10) === HARDSKILL
+      );
+    }
+    if (filterState.type !== DEFAULT_STRING && filterState.type !== HARDSKILL) {
+      filteredCompetas = filteredCompetas.filter(
+        c => c.competaType === filterState.type
+      );
+    }
+    if (filterState.industry !== DEFAULT_STRING) {
+      filteredCompetas = filteredCompetas
+        .filter(c => c.competaType === JOB)
+        .filter(c =>
+          c.jobSkill ? c.jobSkill.industryId === filterState.industry : null
+        );
+    }
+    if (filterState.author !== DEFAULT_STRING) {
+      const [authorFirstName, authorLastName] = filterState.author
+        .toLowerCase()
+        .split(' ');
+      filteredCompetas = filteredCompetas.filter(
+        c =>
+          c.authorFirstName.toLowerCase().includes(authorFirstName) &&
+          c.authorLastName.toLowerCase().includes(authorLastName)
+      );
+    }
+  }
 
-	const resetFilter = () => {
-		setFilterState({
-			title: '',
-			type: '',
-			industry: '',
-			author: '',
-		});
-	};
+  const resetFilter = () => {
+    setFilterState({
+      title: '',
+      type: '',
+      industry: '',
+      author: '',
+    });
+  };
 
-	return { filterState, filteredCompetas, handleFilterCompetasAllUsers, resetFilter };
+  return {
+    filterState,
+    filteredCompetas,
+    handleFilterCompetasAllUsers,
+    resetFilter,
+  };
 };

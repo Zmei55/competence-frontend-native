@@ -1,18 +1,22 @@
-import { useAppDispatch } from 'src/app';
-import { resetCompetence, saveCompetaError, resetCompetaError } from '..';
-import { customErrorHandler } from 'shared';
+import { useAppDispatch } from 'screens/app';
+import {
+  resetCompetence,
+  saveCompetaError,
+  resetCompetaError,
+} from 'redux/competence';
+import { customErrorHandler } from 'shared/helpers';
 
 export const useCompetenceStateReset = () => {
-	const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-	const handleCompetenceReset = () => {
-		try {
-			dispatch(resetCompetaError());
-			dispatch(resetCompetence());
-		} catch (error) {
-			dispatch(saveCompetaError(customErrorHandler(error)));
-		}
-	};
+  const handleCompetenceReset = () => {
+    try {
+      dispatch(resetCompetaError());
+      dispatch(resetCompetence());
+    } catch (error) {
+      dispatch(saveCompetaError(customErrorHandler(error)));
+    }
+  };
 
-	return { handleCompetenceReset };
+  return { handleCompetenceReset };
 };

@@ -13,20 +13,20 @@ import feedback from '../locales/en/en_feedback.json';
 import aboutProject from '../locales/en/en_aboutproject.json';
 
 declare module 'i18next' {
-	interface CustomTypeOptions {
-		resources: {
-			buttons: typeof buttons;
-			header: typeof header;
-			auth: typeof auth;
-			profile: typeof profile;
-			guides: typeof guides;
-			competence: typeof competence;
-			guarantee: typeof guarantee;
-			footer: typeof footer;
-			shared: typeof shared;
-			admin: typeof admin;
-			feedback: typeof feedback;
-			aboutProject: typeof aboutProject;
-		};
-	}
+  interface CustomTypeOptions {
+    resources: {
+      buttons: typeof buttons;
+      header: typeof header;
+      auth: typeof auth;
+      profile: typeof profile;
+      guides: typeof guides;
+      competence: typeof competence;
+      guarantee: typeof guarantee;
+      footer: typeof footer;
+      shared: typeof shared;
+      admin: typeof admin;
+      feedback: typeof feedback;
+      aboutProject: typeof aboutProject;
+    };
+  }
 }

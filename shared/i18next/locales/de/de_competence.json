@@ -78,7 +78,6 @@
     "driverLicence": "Führerscheintyp",
     "transportType": "Verkehrsmittel",
     "licenceDetails": "Kategorien/Lizenzen"
-
   },
   "tooltips": {
     "chooseTypeCompetence": "Wählen Sie den Kompetenztyp",

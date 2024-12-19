@@ -1,19 +1,18 @@
 {
-    "noFeedbackRequestsWereSent": "Es wurden noch keine Feedbackanfragen verschickt",
-    "more": "Mehr",
-    "rollUp": "Aufrollen",
-    "feedbackReceived": "Erhaltene Rückmeldungen",
-    "noFeedbackReceived": "Anfrage gesendet, keine Rückmeldung erhalten",
-    "nickName": "Spitzname",
-    "rating": "Bewertung",
-    "review": "Überprüfung",
-    "dateFeedback": "Rückrufdatum",
-    "believeDisbelieve": "ob Sie es glauben oder nicht",
-    "dateSending": "datum der Absendung der Anfrage",
-    "sendRating": "punktzahl von 1 bis 5",
-    "sendReview": "textrückmeldung/Kommentar",
-    "confirmFeedbackTitle": "Rückmeldung senden",
-    "confirmFeedbackMessage": "Um ein Feedback zu senden, sind eine Kompetenzbewertung, ein Text-Feedback/Kommentar und eine Bewertung (glauben/ nicht glauben) erforderlich, die Sie nach eigenem Ermessen abgeben können",
-    "sendFeedback": "Rückmeldeformular"
-  }
-  
+  "noFeedbackRequestsWereSent": "Es wurden noch keine Feedbackanfragen verschickt",
+  "more": "Mehr",
+  "rollUp": "Aufrollen",
+  "feedbackReceived": "Erhaltene Rückmeldungen",
+  "noFeedbackReceived": "Anfrage gesendet, keine Rückmeldung erhalten",
+  "nickName": "Spitzname",
+  "rating": "Bewertung",
+  "review": "Überprüfung",
+  "dateFeedback": "Rückrufdatum",
+  "believeDisbelieve": "ob Sie es glauben oder nicht",
+  "dateSending": "datum der Absendung der Anfrage",
+  "sendRating": "punktzahl von 1 bis 5",
+  "sendReview": "textrückmeldung/Kommentar",
+  "confirmFeedbackTitle": "Rückmeldung senden",
+  "confirmFeedbackMessage": "Um ein Feedback zu senden, sind eine Kompetenzbewertung, ein Text-Feedback/Kommentar und eine Bewertung (glauben/ nicht glauben) erforderlich, die Sie nach eigenem Ermessen abgeben können",
+  "sendFeedback": "Rückmeldeformular"
+}

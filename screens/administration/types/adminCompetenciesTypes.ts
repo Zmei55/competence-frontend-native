@@ -1,13 +1,13 @@
-import { TCompetence } from 'src/features/competence';
+import { TCompetence } from 'screens/competence';
 
 export type TAdminCompetence = Pick<
-	TCompetence,
-	| 'id'
-	| 'competaType'
-	| 'title'
-	| 'description'
-	| 'competenceDate'
-	| 'imageData'
-	| 'trustIndex'
-	| 'confirmed'
+  TCompetence,
+  | 'id'
+  | 'competaType'
+  | 'title'
+  | 'description'
+  | 'competenceDate'
+  | 'imageData'
+  | 'trustIndex'
+  | 'confirmed'
 >;

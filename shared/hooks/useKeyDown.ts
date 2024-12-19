@@ -2,21 +2,24 @@ import { useEffect, useCallback } from 'react';
 
 type TKeyboardButton = 'Escape' | 'Enter';
 
-export const useKeyDown = (keyboardButton: TKeyboardButton, callback: () => void): void => {
-	const handleKeyDown = useCallback(
-		(event: { code: string }) => {
-			if (event.code === keyboardButton) {
-				callback();
-			}
-		},
-		[callback]
-	);
+export const useKeyDown = (
+  keyboardButton: TKeyboardButton,
+  callback: () => void
+): void => {
+  const handleKeyDown = useCallback(
+    (event: { code: string }) => {
+      if (event.code === keyboardButton) {
+        callback();
+      }
+    },
+    [callback]
+  );
 
-	useEffect(() => {
-		document.addEventListener('keydown', handleKeyDown);
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
 
-		return () => {
-			document.removeEventListener('keydown', handleKeyDown);
-		};
-	}, [handleKeyDown]);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
 };

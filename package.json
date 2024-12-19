@@ -6,12 +6,12 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache --max-warnings=0",
+    "lint:fix": "eslint src/**/*.ts{,x} --fix",
+    "interface": "i18next-resources-for-ts interface -i ./src/shared/i18next/locales/de -o ./src/shared/i18next/types/resources.d.ts",
+    "prepare": "husky install"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "@mui/material": "^6.1.7",
     "@react-navigation/bottom-tabs": "^7.0.4",
     "@react-navigation/devtools": "^7.0.4",
     "@react-navigation/native": "^7.0.3",
@@ -21,9 +21,12 @@
     "expo": "~52.0.7",
     "expo-status-bar": "~2.0.0",
     "i18next": "^23.16.5",
+    "prettier": "^3.3.3",
     "react": "18.3.1",
+    "react-hook-form": "^7.53.2",
     "react-i18next": "^15.1.1",
     "react-native": "0.76.2",
+    "react-native-paper": "^5.12.5",
     "react-native-safe-area-context": "4.12.0",
     "react-native-screens": "~4.1.0",
     "react-native-svg": "15.8.0",
@@ -31,8 +34,24 @@
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
+    "@babel/eslint-parser": "^7.25.9",
+    "@eslint/compat": "^1.2.4",
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.17.0",
     "@types/react": "~18.3.12",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.13.0",
     "typescript": "^5.6.3"
   },
-  "private": true
+  "private": true,
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.{js,jsx,ts,tsx,css,scss,md}": "prettier --write"
+  }
 }
