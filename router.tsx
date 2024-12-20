@@ -6,6 +6,8 @@ import { isAuthSelector } from 'redux/auth';
 import { LoginScreen } from 'screens/auth/LoginScreen';
 import { RegisterScreen } from 'screens/auth/RegisterScreen';
 import { HomePageScreen } from 'screens/homePage/HomePage';
+import { AppHeader } from 'screens/app/AppHeader';
+import { Colors } from 'shared/theme';
 
 declare global {
   namespace ReactNavigation {
@@ -27,29 +29,40 @@ const useIsSignedOut = () => {
 };
 
 export const RootStack = createNativeStackNavigator({
-  initialRouteName: 'Login',
+  // initialRouteName: 'Login',
+  screenOptions: {
+    header: ({ options, back, route }) => (
+      <AppHeader options={options} route={route} back={back} />
+    ),
+  },
   groups: {
     Common: {
       screens: {
         HomePage: {
           screen: HomePageScreen,
+          options: {
+            headerTitle: 'COMPETENCE CENTER',
+            headerTitleStyle: {
+              color: Colors.primary,
+            },
+          },
         },
       },
     },
-    SignedOut: {
-      if: useIsSignedOut,
-      screens: {
-        Login: {
-          screen: LoginScreen,
-        },
-        Register: {
-          screen: RegisterScreen,
-        },
-      },
-    },
-    SignedIn: {
-      if: useIsSignedIn,
-      screens: {},
-    },
+    // SignedOut: {
+    //   if: useIsSignedOut,
+    //   screens: {
+    //     Login: {
+    //       screen: LoginScreen,
+    //     },
+    //     Register: {
+    //       screen: RegisterScreen,
+    //     },
+    //   },
+    // },
+    // SignedIn: {
+    //   if: useIsSignedIn,
+    //   screens: {},
+    // },
   },
 });

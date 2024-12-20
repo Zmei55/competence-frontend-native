@@ -6,3 +6,4 @@ export * from './useClickOutside';
 export * from './useKeyDown';
 export * from './useGetImageById';
 export * from './useShowKeyboard';
+export * from './useDimensions';

@@ -9,7 +9,7 @@ import {
   useController,
 } from 'react-hook-form';
 
-import { Text } from 'shared/ui';
+import { Text } from 'shared/ui/Text';
 import { Colors, Theme } from 'shared/theme';
 import EyeClosedIcon from 'shared/icons/EyeClosed';
 import EyeOpeningIcon from 'shared/icons/EyeOpening';
