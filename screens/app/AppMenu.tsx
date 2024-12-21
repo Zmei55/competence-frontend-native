@@ -1,13 +1,17 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
+import { Button } from 'react-native-paper';
 
 import { useDimensions } from 'shared/hooks';
 import { Theme } from 'shared/theme';
+import { firstLatterToUpperCase } from 'shared/helpers';
 
 interface AppMenuProps {}
 
 export const AppMenu: React.FC<AppMenuProps> = () => {
   const { navigate } = useNavigation();
+  const { t } = useTranslation(['header', 'buttons']);
   const { heightWindow } = useDimensions();
 
   return (
@@ -18,19 +22,21 @@ export const AppMenu: React.FC<AppMenuProps> = () => {
       }}
     >
       <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Profile</Text>
+        <Text style={styles.buttonText}>{t('myProfile')}</Text>
       </Pressable>
       <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Competence</Text>
+        <Text style={styles.buttonText}>{t('competencies')}</Text>
       </Pressable>
       <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Administration</Text>
+        <Text style={styles.buttonText}>{t('requests')}</Text>
       </Pressable>
       <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Requests</Text>
+        <Text style={styles.buttonText}>{t('administration')}</Text>
       </Pressable>
       <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Logout</Text>
+        <Text style={styles.buttonText}>
+          {firstLatterToUpperCase(t('buttons:logOut'))}
+        </Text>
       </Pressable>
     </View>
   );
@@ -43,7 +49,7 @@ const styles = StyleSheet.create({
     right: 0,
     backgroundColor: '#FFF',
     zIndex: 1000,
-    width: 250,
+    width: 300,
   },
   button: {
     paddingHorizontal: Theme.spacing(5),

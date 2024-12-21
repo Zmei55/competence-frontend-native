@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Route } from '@react-navigation/native';
 import { getHeaderTitle, Header } from '@react-navigation/elements';
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
