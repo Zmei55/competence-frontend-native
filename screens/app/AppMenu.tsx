@@ -21,7 +21,7 @@ export const AppMenu: React.FC<AppMenuProps> = () => {
         height: heightWindow - 88,
       }}
     >
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={() => navigate('Profile')}>
         <Text style={styles.buttonText}>{t('myProfile')}</Text>
       </Pressable>
       <Pressable style={styles.button}>

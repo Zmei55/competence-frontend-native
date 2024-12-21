@@ -5,7 +5,8 @@ import { useAppSelector } from 'screens/app';
 import { isAuthSelector } from 'redux/auth';
 import { LoginScreen } from 'screens/auth/LoginScreen';
 import { RegisterScreen } from 'screens/auth/RegisterScreen';
-import { HomePageScreen } from 'screens/homePage/HomePage';
+import { HomePageScreen } from 'screens/homePage';
+import { ProfileScreen } from 'screens/profile';
 import { AppHeader } from 'screens/app/AppHeader';
 import { Colors } from 'shared/theme';
 
@@ -29,7 +30,7 @@ const useIsSignedOut = () => {
 };
 
 export const RootStack = createNativeStackNavigator({
-  // initialRouteName: 'Login',
+  initialRouteName: 'Login',
   screenOptions: {
     header: ({ options, back, route }) => (
       <AppHeader options={options} route={route} back={back} />
@@ -49,20 +50,24 @@ export const RootStack = createNativeStackNavigator({
         },
       },
     },
-    // SignedOut: {
-    //   if: useIsSignedOut,
-    //   screens: {
-    //     Login: {
-    //       screen: LoginScreen,
-    //     },
-    //     Register: {
-    //       screen: RegisterScreen,
-    //     },
-    //   },
-    // },
-    // SignedIn: {
-    //   if: useIsSignedIn,
-    //   screens: {},
-    // },
+    SignedOut: {
+      if: useIsSignedOut,
+      screens: {
+        Login: {
+          screen: LoginScreen,
+        },
+        Register: {
+          screen: RegisterScreen,
+        },
+      },
+    },
+    SignedIn: {
+      if: useIsSignedIn,
+      screens: {
+        Profile: {
+          screen: ProfileScreen,
+        },
+      },
+    },
   },
 });

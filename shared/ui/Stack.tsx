@@ -21,28 +21,13 @@ export const Stack: FC<StackProps> = ({
         {
           ...styles.stack,
           flexDirection: direction,
+          gap: Theme.spacing(spacing),
         },
       ]}
       {...rest}
     >
       {Children.map(children, (child, index) => (
-        <View
-          key={index}
-          style={{
-            marginTop:
-              (direction === 'column' && index > 0) ||
-              (direction === 'column-reverse' && index > 0)
-                ? Theme.spacing(spacing)
-                : 0,
-            marginLeft:
-              (direction === 'row' && index > 0) ||
-              (direction === 'row-reverse' && index > 0)
-                ? Theme.spacing(spacing)
-                : 0,
-          }}
-        >
-          {child}
-        </View>
+        <View key={index}>{child}</View>
       ))}
     </View>
   );
