@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarMessage, saveSnackbarError } from 'redux/app';
-import { useCreateJobTitleMutation, addJobTitleInStorage } from '..';
+import { useCreateJobTitleMutation } from 'redux/administration/guidesApi';
+import { addJobTitleInStorage } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useNewJobTitleSubmit = () => {

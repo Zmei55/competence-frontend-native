@@ -1,11 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarMessage, saveSnackbarError } from 'redux/app';
-import {
-  useUpdateAdminCompetenceByUserIdMutation,
-  resetAdministration,
-} from 'screens/administration';
+import { useUpdateAdminCompetenceByUserIdMutation } from 'redux/administration/adminCompetenciesApi';
+import { resetAdministration } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { useCompetaModalUpdate, TCompetenceForm } from 'screens/competence';
 import { customErrorHandler } from 'shared/helpers';
 

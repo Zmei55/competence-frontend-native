@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useAppDispatch } from 'screens/app';
+
 import { saveSnackbarError } from 'redux/app';
-import {
-  useGetUserProfilesBySearchMutation,
-  TAdminUserProfile,
-  TAdminUserSearch,
-} from '..';
+import { useGetUserProfilesBySearchMutation } from 'redux/administration/adminUsersApi';
+import { TAdminUserProfile, TAdminUserSearch } from 'screens/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetUsersBySearch = () => {

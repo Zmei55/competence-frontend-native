@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarMessage, saveSnackbarError } from 'redux/app';
-import { useCreateIndustryMutation, addIndustryInStorage } from '..';
+import { useCreateIndustryMutation } from 'redux/administration/guidesApi';
+import { addIndustryInStorage } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useNewIndustrySubmit = () => {

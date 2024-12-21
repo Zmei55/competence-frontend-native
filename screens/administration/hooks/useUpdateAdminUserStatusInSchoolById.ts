@@ -1,11 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarMessage, saveSnackbarError } from 'redux/app';
-import {
-  useUpdateAdminUserStatusInSchoolByIdMutation,
-  TAdminUserStatusInSchoolUpdate,
-} from '..';
+import { useUpdateAdminUserStatusInSchoolByIdMutation } from 'redux/administration/adminUsersApi';
+import { useAppDispatch } from 'screens/app';
+import { TAdminUserStatusInSchoolUpdate } from 'screens/administration';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useUpdateAdminUserStatusInSchoolById = () => {

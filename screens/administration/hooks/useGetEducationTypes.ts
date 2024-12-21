@@ -1,6 +1,7 @@
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarError } from 'redux/app';
-import { useLazyGetAllEducationTypeQuery, saveEducationTypes } from '..';
+import { useLazyGetAllEducationTypeQuery } from 'redux/administration/guidesApi';
+import { saveEducationTypes } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetEducationTypes = () => {

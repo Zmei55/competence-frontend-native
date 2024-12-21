@@ -1,6 +1,7 @@
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarError } from 'redux/app';
-import { useLazyGetAllSkillLevelQuery, saveSkillLevels } from '..';
+import { useLazyGetAllSkillLevelQuery } from 'redux/administration/guidesApi';
+import { saveSkillLevels } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetSkillLevels = () => {

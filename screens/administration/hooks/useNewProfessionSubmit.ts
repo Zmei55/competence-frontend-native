@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarMessage, saveSnackbarError } from 'redux/app';
-import { useCreateProfessionMutation, addProfessionInStorage } from '..';
+import { useCreateProfessionMutation } from 'redux/administration/guidesApi';
+import { addProfessionInStorage } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useNewProfessionSubmit = () => {

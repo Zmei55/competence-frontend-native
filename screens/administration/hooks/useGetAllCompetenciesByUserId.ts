@@ -1,6 +1,6 @@
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarError } from 'redux/app';
-import { useLazyGetAllCompetenciesByUserIdQuery } from '..';
+import { useLazyGetAllCompetenciesByUserIdQuery } from 'redux/administration/adminCompetenciesApi';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetAllCompetenciesByUserId = () => {

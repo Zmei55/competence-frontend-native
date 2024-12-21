@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarMessage, saveSnackbarError } from 'redux/app';
-import { useUpdateAdminUserRolesByIdMutation, TAdminUserRolesUpdate } from '..';
+import { useUpdateAdminUserRolesByIdMutation } from 'redux/administration/adminUsersApi';
+import { useAppDispatch } from 'screens/app';
+import { TAdminUserRolesUpdate } from 'screens/administration';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useUpdateAdminUserRolesById = () => {

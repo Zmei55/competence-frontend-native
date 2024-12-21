@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch } from 'screens/app';
 import { saveSnackbarMessage, saveSnackbarError } from 'redux/app';
-import { useDeleteAdminUserByIdMutation } from '..';
+import { useDeleteAdminUserByIdMutation } from 'redux/administration/adminUsersApi';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useDeleteAdminUserById = () => {

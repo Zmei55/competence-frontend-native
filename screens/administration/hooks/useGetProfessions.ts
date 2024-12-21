@@ -1,6 +1,7 @@
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarError } from 'redux/app';
-import { useLazyGetAllProfessionQuery, saveProfessionList } from '..';
+import { useLazyGetAllProfessionQuery } from 'redux/administration/guidesApi';
+import { saveProfessionList } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetProfessions = () => {

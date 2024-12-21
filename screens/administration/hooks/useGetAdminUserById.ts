@@ -1,6 +1,6 @@
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarError } from 'redux/app';
-import { useLazyGetAdminUserByIdQuery } from '..';
+import { useLazyGetAdminUserByIdQuery } from 'redux/administration/adminUsersApi';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetAdminUserById = () => {

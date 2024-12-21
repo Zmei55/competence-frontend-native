@@ -1,6 +1,7 @@
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarError } from 'redux/app';
-import { useLazyGetAllDriverLicenceQuery, saveDriverLicences } from '..';
+import { useLazyGetAllDriverLicenceQuery } from 'redux/administration/guidesApi';
+import { saveDriverLicences } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetDriverLicences = () => {

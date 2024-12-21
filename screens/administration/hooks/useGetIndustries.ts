@@ -1,6 +1,7 @@
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarError } from 'redux/app';
-import { useLazyGetAllIndustryQuery, saveIndustryList } from '..';
+import { useLazyGetAllIndustryQuery } from 'redux/administration/guidesApi';
+import { saveIndustryList } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetIndustries = () => {

@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarMessage, saveSnackbarError } from 'redux/app';
-import { useUpdateProfessionByIdMutation, updateProfessionInStorage } from '..';
+import { useUpdateProfessionByIdMutation } from 'redux/administration/guidesApi';
+import { updateProfessionInStorage } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useProfessionUpdate = () => {

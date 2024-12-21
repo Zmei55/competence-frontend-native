@@ -1,6 +1,7 @@
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarError } from 'redux/app';
-import { useLazyGetAllLanguageQuery, saveLanguages } from '..';
+import { useLazyGetAllLanguageQuery } from 'redux/administration/guidesApi';
+import { saveLanguages } from 'redux/administration';
+import { useAppDispatch } from 'screens/app';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetLanguages = () => {
