@@ -8,24 +8,33 @@ enum TextSize {
   bodySmall = 10,
 }
 
-type CustomTextProps = Omit<TextPropsNative, 'children'> & {
+type CustomTextProps = TextPropsNative & {
   color?: 'text' | 'white' | 'error';
   variant?: 'title' | 'subtitle' | 'body' | 'bodySmall';
-  children: string;
+  bold?: boolean;
+  italic?: boolean;
 };
 
 export const Text: React.FC<CustomTextProps> = ({
   variant = 'body',
   color = 'text',
+  bold = false,
+  italic = false,
+  style,
   children,
   ...rest
 }) => {
   return (
     <TextNative
-      style={{
-        fontSize: TextSize[variant],
-        color: Colors[color],
-      }}
+      style={[
+        {
+          fontSize: TextSize[variant],
+          fontWeight: bold ? 'bold' : 'normal',
+          fontStyle: italic ? 'italic' : 'normal',
+          color: Colors[color],
+        },
+        style,
+      ]}
       {...rest}
     >
       {children}
