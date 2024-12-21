@@ -29,7 +29,16 @@ export const Stack: FC<StackProps> = ({
         <View
           key={index}
           style={{
-            marginTop: index > 0 ? Theme.spacing(spacing) : 0,
+            marginTop:
+              (direction === 'column' && index > 0) ||
+              (direction === 'column-reverse' && index > 0)
+                ? Theme.spacing(spacing)
+                : 0,
+            marginLeft:
+              (direction === 'row' && index > 0) ||
+              (direction === 'row-reverse' && index > 0)
+                ? Theme.spacing(spacing)
+                : 0,
           }}
         >
           {child}
