@@ -16,6 +16,7 @@ export const Button: React.FC<ButtonProps> = ({
   buttonColor = 'primary',
   titleColor = 'text',
   mode = 'elevated',
+  style,
   children,
   ...rest
 }) => {
@@ -25,13 +26,16 @@ export const Button: React.FC<ButtonProps> = ({
       buttonColor={Colors[buttonColor]}
       textColor={Colors[titleColor]}
       {...rest}
-      style={{
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 45,
-        borderRadius: Theme.spacing(2),
-        paddingHorizontal: Theme.spacing(4),
-      }}
+      style={[
+        {
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: 45,
+          borderRadius: Theme.spacing(2),
+          paddingHorizontal: Theme.spacing(4),
+        },
+        style,
+      ]}
     >
       {children}
     </ButtonNative>

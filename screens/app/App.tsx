@@ -3,7 +3,6 @@ import {
   ParamListBase,
   useNavigationContainerRef,
 } from '@react-navigation/native';
-import { useReduxDevToolsExtension } from '@react-navigation/devtools';
 import { Provider } from 'react-redux';
 import { I18nextProvider } from 'react-i18next';
 import { PaperProvider } from 'react-native-paper';
@@ -14,7 +13,6 @@ import i18n from 'shared/i18next/i18n';
 
 export default function App() {
   const navigationRef = useNavigationContainerRef<ParamListBase>();
-  useReduxDevToolsExtension(navigationRef);
 
   const Navigation = createStaticNavigation(RootStack);
 

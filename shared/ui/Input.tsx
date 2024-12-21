@@ -9,7 +9,7 @@ import {
   useController,
 } from 'react-hook-form';
 
-import { Text } from 'shared/ui';
+import { Text } from 'shared/ui/Text';
 import { Colors, Theme } from 'shared/theme';
 import EyeClosedIcon from 'shared/icons/EyeClosed';
 import EyeOpeningIcon from 'shared/icons/EyeOpening';
@@ -36,6 +36,8 @@ export const Input: FC<InputProps> = ({
   required = false,
   isPassword = false,
   errors,
+  right,
+  style,
   ...rest
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
@@ -51,9 +53,7 @@ export const Input: FC<InputProps> = ({
       <TextInputRNP
         value={field.value}
         onChangeText={field.onChange}
-        style={{
-          height: 50,
-        }}
+        style={[styles.textInput, style]}
         mode="outlined"
         outlineColor={Colors.primary}
         activeOutlineColor={Colors.primaryDark}
@@ -64,16 +64,30 @@ export const Input: FC<InputProps> = ({
             {required && <Text style={{ color: Colors.error }}> *</Text>}
           </>
         }
+        right={
+          <View>
+            {isPassword && !right && (
+              <Pressable
+                onPress={() => setIsPasswordVisible(state => !state)}
+                style={styles.eyeIcon}
+              >
+                {isPasswordVisible ? <EyeClosedIcon /> : <EyeOpeningIcon />}
+              </Pressable>
+            )}
+
+            {right && !isPassword && right}
+          </View>
+        }
         {...rest}
       />
-      {isPassword && (
+      {/* {isPassword && (
         <Pressable
           onPress={() => setIsPasswordVisible(state => !state)}
           style={styles.eyeIcon}
         >
           {isPasswordVisible ? <EyeClosedIcon /> : <EyeOpeningIcon />}
         </Pressable>
-      )}
+      )} */}
 
       {errors && errors.message && (
         <Text color="error" variant="bodySmall">
@@ -85,6 +99,9 @@ export const Input: FC<InputProps> = ({
 };
 
 const styles = StyleSheet.create({
+  textInput: {
+    height: 50,
+  },
   eyeIcon: {
     position: 'absolute',
     top: Theme.spacing(5),

@@ -1,4 +1,3 @@
-import { StyleSheet, Text } from 'react-native';
 import { ActivityIndicator, ActivityIndicatorProps } from 'react-native-paper';
 
 import { Colors } from 'shared/theme';
@@ -24,7 +23,7 @@ const spinnerSize = (size: SpinnerSizeType) => {
 
 export const Spinner: React.FC<SpinnerProps> = ({
   color = 'primary',
-  size,
+  size = 'small',
   ...rest
 }) => {
   return (
