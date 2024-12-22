@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'react-native-paper';
 
+import { useLogout } from 'screens/auth/hooks';
 import { useDimensions } from 'shared/hooks';
 import { Theme } from 'shared/theme';
 import { firstLatterToUpperCase } from 'shared/helpers';
@@ -13,6 +13,7 @@ export const AppMenu: React.FC<AppMenuProps> = () => {
   const { navigate } = useNavigation();
   const { t } = useTranslation(['header', 'buttons']);
   const { heightWindow } = useDimensions();
+  const { handleLogout } = useLogout();
 
   return (
     <View
@@ -33,7 +34,7 @@ export const AppMenu: React.FC<AppMenuProps> = () => {
       <Pressable style={styles.button}>
         <Text style={styles.buttonText}>{t('administration')}</Text>
       </Pressable>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={() => handleLogout()}>
         <Text style={styles.buttonText}>
           {firstLatterToUpperCase(t('buttons:logOut'))}
         </Text>

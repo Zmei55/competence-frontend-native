@@ -7,8 +7,9 @@ import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import { AppMenuButton } from './AppMenuButton';
 import { AppMenu } from './AppMenu';
 
-import { useAppSelector } from 'screens/app';
-import { userSelector } from 'redux/auth';
+import { useGetCurrentUserQuery } from 'redux/auth/authApi';
+import { isAuthSelector, saveAuthLoading } from 'redux/auth';
+import { useAppSelector, useAppDispatch } from 'screens/app';
 import {
   useGetDriverLicences,
   useGetEducationTypes,
@@ -30,7 +31,11 @@ interface AppHeaderProps {
 }
 
 export const AppHeader: FC<AppHeaderProps> = ({ options, route }) => {
-  const currentUser = useAppSelector(userSelector);
+  const dispatch = useAppDispatch();
+  const isAuth = useAppSelector(isAuthSelector);
+  const { data: currentUser, isFetching } = useGetCurrentUserQuery(null, {
+    skip: !isAuth,
+  });
   const { getDriverLicences } = useGetDriverLicences();
   const { getEducationTypes } = useGetEducationTypes();
   const { getIndustries } = useGetIndustries();
@@ -58,6 +63,10 @@ export const AppHeader: FC<AppHeaderProps> = ({ options, route }) => {
       fetchInitialData();
     }
   }, [currentUser]);
+
+  useEffect(() => {
+    dispatch(saveAuthLoading(isFetching));
+  }, [isFetching]);
 
   return (
     <View>
