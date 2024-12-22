@@ -5,6 +5,9 @@ import {
   ImageBackground,
   ScrollView,
   Image,
+  StyleProp,
+  ViewStyle,
+  ImageSourcePropType,
 } from 'react-native';
 
 import { Colors, Theme } from 'shared/theme';
@@ -20,9 +23,81 @@ const resumeImg = require('../../shared/images/resume.webp');
 
 interface HomePageScreenProps {}
 
+interface InfoBoxProps {
+  style: StyleProp<ViewStyle>;
+  image: ImageSourcePropType;
+  title: string;
+  firstParagraph: string;
+  secondParagraph: string;
+}
+
+const InfoBox: React.FC<InfoBoxProps> = ({
+  style,
+  image,
+  title,
+  firstParagraph,
+  secondParagraph,
+}) => {
+  const { widthWindow } = useDimensions();
+
+  return (
+    <Stack
+      direction={widthWindow > 700 ? 'row' : 'column'}
+      style={style}
+      spacing={2}
+    >
+      <Image
+        source={image}
+        resizeMode="cover"
+        style={{
+          width: widthWindow > 700 ? 400 : widthWindow - Theme.spacing(4) * 2,
+          height: widthWindow > 700 ? 400 : widthWindow - Theme.spacing(4) * 2,
+        }}
+      />
+
+      <Stack>
+        <Text variant="subtitle" color="white">
+          {title}
+        </Text>
+
+        <Stack direction="row">
+          <View style={styles.iconBox}>
+            <CircleIcon fill={Colors.white} />
+          </View>
+
+          <Text
+            color="white"
+            style={{
+              textAlign: 'justify',
+              width: widthWindow - Theme.spacing(4) * 2 - 30,
+            }}
+          >
+            {firstParagraph}
+          </Text>
+        </Stack>
+
+        <Stack direction="row">
+          <View style={styles.iconBox}>
+            <CircleIcon fill={Colors.white} />
+          </View>
+
+          <Text
+            color="white"
+            style={{
+              textAlign: 'justify',
+              width: widthWindow - Theme.spacing(4) * 2 - 30,
+            }}
+          >
+            {secondParagraph}
+          </Text>
+        </Stack>
+      </Stack>
+    </Stack>
+  );
+};
+
 export const HomePageScreen: React.FC<HomePageScreenProps> = () => {
   const { t } = useTranslation(['aboutProject', 'buttons']);
-  const { widthWindow } = useDimensions();
 
   return (
     <ScrollView>
@@ -62,170 +137,29 @@ export const HomePageScreen: React.FC<HomePageScreenProps> = () => {
             <Text color="white">{t('aboutProject:produceResumeBanner')}</Text>
           </View>
 
-          <Stack
-            direction={widthWindow > 700 ? 'row' : 'column'}
+          <InfoBox
             style={[styles.infoBox, styles.infoBoxOne]}
-            spacing={2}
-          >
-            <Image
-              source={competencyImg}
-              resizeMode="cover"
-              style={{
-                width:
-                  widthWindow > 700 ? 400 : widthWindow - Theme.spacing(4) * 2,
-                height:
-                  widthWindow > 700 ? 400 : widthWindow - Theme.spacing(4) * 2,
-              }}
-            />
+            image={competencyImg}
+            title={t('aboutProject:infoBox1Title')}
+            firstParagraph={t('aboutProject:infoBox1FirstParagraph')}
+            secondParagraph={t('aboutProject:infoBox1SecondParagraph')}
+          />
 
-            <Stack>
-              <Text variant="subtitle" color="white">
-                {t('aboutProject:infoBox1Title')}
-              </Text>
-
-              <Stack direction="row">
-                <View style={styles.iconBox}>
-                  <CircleIcon fill={Colors.white} />
-                </View>
-
-                <Text
-                  color="white"
-                  style={{
-                    textAlign: 'justify',
-                    width: widthWindow - Theme.spacing(4) * 2 - 30,
-                  }}
-                >
-                  {t('aboutProject:infoBox1FirstParagraph')}
-                </Text>
-              </Stack>
-
-              <Stack direction="row">
-                <View style={styles.iconBox}>
-                  <CircleIcon fill={Colors.white} />
-                </View>
-
-                <Text
-                  color="white"
-                  style={{
-                    textAlign: 'justify',
-                    width: widthWindow - Theme.spacing(4) * 2 - 30,
-                  }}
-                >
-                  {t('aboutProject:infoBox1SecondParagraph')}
-                </Text>
-              </Stack>
-            </Stack>
-          </Stack>
-
-          <Stack
-            direction={widthWindow > 700 ? 'row' : 'column'}
+          <InfoBox
             style={[styles.infoBox, styles.infoBoxTwo]}
-            spacing={2}
-          >
-            <Image
-              source={feedbackImg}
-              resizeMode="cover"
-              style={{
-                width:
-                  widthWindow > 700 ? 400 : widthWindow - Theme.spacing(4) * 2,
-                height:
-                  widthWindow > 700 ? 400 : widthWindow - Theme.spacing(4) * 2,
-              }}
-            />
+            image={feedbackImg}
+            title={t('aboutProject:infoBox2Title')}
+            firstParagraph={t('aboutProject:infoBox2FirstParagraph')}
+            secondParagraph={t('aboutProject:infoBox2SecondParagraph')}
+          />
 
-            <Stack>
-              <Text variant="subtitle" color="white">
-                {t('aboutProject:infoBox2Title')}
-              </Text>
-
-              <Stack direction="row">
-                <View style={styles.iconBox}>
-                  <CircleIcon fill={Colors.white} />
-                </View>
-
-                <Text
-                  color="white"
-                  style={{
-                    textAlign: 'justify',
-                    width: widthWindow - Theme.spacing(4) * 2 - 30,
-                  }}
-                >
-                  {t('aboutProject:infoBox2FirstParagraph')}
-                </Text>
-              </Stack>
-
-              <Stack direction="row">
-                <View style={styles.iconBox}>
-                  <CircleIcon fill={Colors.white} />
-                </View>
-
-                <Text
-                  color="white"
-                  style={{
-                    textAlign: 'justify',
-                    width: widthWindow - Theme.spacing(4) * 2 - 30,
-                  }}
-                >
-                  {t('aboutProject:infoBox2SecondParagraph')}
-                </Text>
-              </Stack>
-            </Stack>
-          </Stack>
-
-          <Stack
-            direction={widthWindow > 700 ? 'row' : 'column'}
+          <InfoBox
             style={[styles.infoBox, styles.infoBoxThree]}
-            spacing={2}
-          >
-            <Image
-              source={resumeImg}
-              resizeMode="cover"
-              style={{
-                width:
-                  widthWindow > 700 ? 400 : widthWindow - Theme.spacing(4) * 2,
-                height:
-                  widthWindow > 700 ? 400 : widthWindow - Theme.spacing(4) * 2,
-              }}
-            />
-
-            <Stack>
-              <Text variant="subtitle" color="white">
-                {t('aboutProject:infoBox3Title')}
-              </Text>
-
-              <Stack direction="row">
-                <View style={styles.iconBox}>
-                  <CircleIcon fill={Colors.white} />
-                </View>
-
-                <Text
-                  color="white"
-                  style={{
-                    textAlign: 'justify',
-                    width: widthWindow - Theme.spacing(4) * 2 - 30,
-                  }}
-                >
-                  {t('aboutProject:infoBox3FirstParagraph')}
-                </Text>
-              </Stack>
-
-              <Stack direction="row">
-                <View style={styles.iconBox}>
-                  <CircleIcon fill={Colors.white} />
-                </View>
-
-                <Text
-                  color="white"
-                  style={{
-                    textAlign: 'justify',
-                    width: widthWindow - Theme.spacing(4) * 2 - 30,
-                  }}
-                >
-                  {t('aboutProject:infoBox3SecondParagraph')}
-                </Text>
-              </Stack>
-            </Stack>
-          </Stack>
+            image={resumeImg}
+            title={t('aboutProject:infoBox3Title')}
+            firstParagraph={t('aboutProject:infoBox3FirstParagraph')}
+            secondParagraph={t('aboutProject:infoBox3SecondParagraph')}
+          />
         </Stack>
       </Stack>
     </ScrollView>
