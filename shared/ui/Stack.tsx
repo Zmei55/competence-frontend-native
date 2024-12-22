@@ -2,7 +2,7 @@ import { Children, FC } from 'react';
 import { View, ViewProps, StyleSheet } from 'react-native';
 import { Theme } from 'shared/theme';
 
-interface StackProps extends ViewProps {
+export interface StackProps extends ViewProps {
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   spacing?: number;
 }

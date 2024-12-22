@@ -21,8 +21,6 @@ const competencyImg = require('../../shared/images/competency.webp');
 const feedbackImg = require('../../shared/images/360.webp');
 const resumeImg = require('../../shared/images/resume.webp');
 
-interface HomePageScreenProps {}
-
 interface InfoBoxProps {
   style: StyleProp<ViewStyle>;
   image: ImageSourcePropType;
@@ -96,7 +94,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   );
 };
 
-export const HomePageScreen: React.FC<HomePageScreenProps> = () => {
+export const HomePageScreen: React.FC = () => {
   const { t } = useTranslation(['aboutProject', 'buttons']);
 
   return (
