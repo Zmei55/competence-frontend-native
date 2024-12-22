@@ -1,6 +1,7 @@
 import { useState } from 'react';
+
 import { useLazyGetFirstNameAndLastNameAllUserProfilesQuery } from 'redux/profile/profileApi';
-import { TProfileName } from '..';
+import { TProfileName } from 'screens/profile/types';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetFirstNameAndLastNameAllUserProfiles = () => {

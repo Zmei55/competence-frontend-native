@@ -9,7 +9,8 @@ import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { TCredentials, useLogin } from 'screens/auth';
+import { useLogin } from 'screens/auth/hooks';
+import { TCredentials } from 'screens/auth/types';
 import {
   Text,
   Input,

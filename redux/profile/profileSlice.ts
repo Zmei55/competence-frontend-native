@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TProfile, TProfileState } from 'screens/profile';
+import { TProfile, TProfileState } from 'screens/profile/types';
 
 const initialState: TProfileState = {
   profile: null,

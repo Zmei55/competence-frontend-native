@@ -1,8 +1,8 @@
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarError } from 'redux/app';
 import { useUploadAvatarMutation } from 'redux/profile/avatarApi';
-import { useGetCurrentUserProfile } from '..';
-import { useGetCurrentUser } from 'screens/auth';
+import { useAppDispatch } from 'screens/app';
+import { useGetCurrentUserProfile } from 'screens/profile/hooks';
+import { useGetCurrentUser } from 'screens/auth/hooks';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useUploadAvatarHandler = () => {

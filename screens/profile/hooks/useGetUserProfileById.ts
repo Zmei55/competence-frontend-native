@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { useLazyGetUserProfileByIdQuery } from 'redux/profile/profileApi';
-import { TProfile } from '..';
+import { TProfile } from 'screens/profile/types';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useGetUserProfileById = () => {

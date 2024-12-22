@@ -1,5 +1,5 @@
 import { RootState } from 'redux/store';
-import { TUser } from 'screens/auth';
+import { TUser } from 'screens/auth/types';
 
 export const isAuthSelector = (state: RootState): boolean =>
   state.auth.authChecked;

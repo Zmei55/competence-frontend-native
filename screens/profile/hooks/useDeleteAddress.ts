@@ -1,11 +1,11 @@
-import { useAppDispatch } from 'screens/app';
 import { useUpdateUserProfileMutation } from 'redux/profile/profileApi';
 import {
   saveProfileError,
   resetProfileError,
   deleteOtherAddress,
 } from 'redux/profile';
-import { IProfileFormValues } from '..';
+import { useAppDispatch } from 'screens/app';
+import { IProfileFormValues } from 'screens/profile/types';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useDeleteAddress = () => {

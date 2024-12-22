@@ -1,11 +1,15 @@
 import { api } from '../app/api';
-import { IProfileFormValues, TProfile, TProfileName } from 'screens/profile';
+import {
+  IProfileFormValues,
+  TProfile,
+  TProfileName,
+} from 'screens/profile/types';
 
 const profileApi = api.injectEndpoints({
   endpoints: builder => ({
     getCurrentUserProfile: builder.query<TProfile, void>({
       query: () => ({
-        url: '/api/user-profile',
+        url: '/user-profile',
         method: 'GET',
       }),
       providesTags: ['profile'],
@@ -13,7 +17,7 @@ const profileApi = api.injectEndpoints({
     }),
     getUserProfileById: builder.query<TProfile, string | number>({
       query: id => ({
-        url: `/api/user-profile/${id}`,
+        url: `/user-profile/${id}`,
         method: 'GET',
       }),
       providesTags: ['profile'],
@@ -21,7 +25,7 @@ const profileApi = api.injectEndpoints({
     }),
     updateUserProfile: builder.mutation<TProfile, IProfileFormValues>({
       query: profile => ({
-        url: '/api/user-profile',
+        url: '/user-profile',
         method: 'PUT',
         body: profile,
       }),
@@ -31,7 +35,7 @@ const profileApi = api.injectEndpoints({
     getFirstNameAndLastNameAllUserProfiles: builder.query<TProfileName[], void>(
       {
         query: () => ({
-          url: '/api/user-profile/name/all',
+          url: '/user-profile/name/all',
           method: 'GET',
         }),
         providesTags: ['profile'],

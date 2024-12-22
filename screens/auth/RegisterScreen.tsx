@@ -9,13 +9,13 @@ import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { useRegister } from 'screens/auth/hooks';
+import { TRegisterForm } from 'screens/auth/types';
 import {
-  TRegisterForm,
-  useRegister,
   validateEmailSchema,
   validateNicknameSchema,
   validatePasswordSchema,
-} from 'screens/auth';
+} from 'screens/auth/validateSchemas';
 import {
   Text,
   Input,

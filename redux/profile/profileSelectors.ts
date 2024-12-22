@@ -1,5 +1,5 @@
 import { RootState } from 'redux/store';
-import { TProfile } from 'screens/profile';
+import { TProfile } from 'screens/profile/types';
 
 export const profileSelector = (state: RootState): TProfile | null =>
   state.profile.profile;

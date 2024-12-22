@@ -1,10 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch } from 'screens/app';
 import { saveSnackbarMessage, saveSnackbarError } from 'redux/app';
 import { useUpdateUserProfileMutation } from 'redux/profile/profileApi';
-import { IProfileFormValues } from '..';
+import { useAppDispatch } from 'screens/app';
+import { IProfileFormValues } from 'screens/profile/types';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useUpdateProfile = () => {
