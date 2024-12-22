@@ -9,11 +9,6 @@ interface SpinnerProps extends ActivityIndicatorProps {
   color?: SpinnerColorType;
 }
 
-const spinnerColor = (color: SpinnerColorType) => {
-  if (color === 'white') return Colors.white;
-  return Colors.primary;
-};
-
 const spinnerSize = (size: SpinnerSizeType) => {
   if (size === 'small') return 25;
   if (size === 'large') return 50;
@@ -29,7 +24,7 @@ export const Spinner: React.FC<SpinnerProps> = ({
   return (
     <ActivityIndicator
       animating={true}
-      color={spinnerColor(color)}
+      color={Colors[color]}
       {...rest}
       size={spinnerSize(size)}
     />
