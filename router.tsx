@@ -5,8 +5,8 @@ import { useAppSelector } from 'screens/app';
 import { isAuthSelector } from 'redux/auth';
 import { LoginScreen } from 'screens/auth/LoginScreen';
 import { RegisterScreen } from 'screens/auth/RegisterScreen';
-import { HomePageScreen } from 'screens/homePage';
-import { ProfileScreen } from 'screens/profile';
+import { HomePageScreen } from 'screens/homePage/HomePageScreen';
+import { ProfileScreen } from 'screens/profile/ProfileScreen';
 import { AppHeader } from 'screens/app/AppHeader';
 import { Colors } from 'shared/theme';
 
@@ -20,7 +20,6 @@ type RootStackParamList = StaticParamList<typeof RootStack>;
 
 const useIsSignedIn = () => {
   const isAuth = useAppSelector(isAuthSelector);
-  console.log('useIsSignedIn ~ isAuth:', isAuth);
   return isAuth;
 };
 

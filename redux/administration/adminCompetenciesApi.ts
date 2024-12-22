@@ -9,7 +9,7 @@ const adminCompetenciesApi = api.injectEndpoints({
       number | string
     >({
       query: id => ({
-        url: `/api/admin/competencies/${id}/competencies`,
+        url: `/admin/competencies/${id}/competencies`,
         method: 'GET',
       }),
       keepUnusedDataFor: 5,
@@ -21,7 +21,7 @@ const adminCompetenciesApi = api.injectEndpoints({
       { competaId: number; formData: FormData }
     >({
       query: ({ competaId, formData }) => ({
-        url: `/api/admin/competencies/${competaId}`,
+        url: `/admin/competencies/${competaId}`,
         method: 'POST',
         body: formData,
       }),

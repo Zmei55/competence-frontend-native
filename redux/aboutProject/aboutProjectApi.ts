@@ -5,7 +5,7 @@ const userApi = api.injectEndpoints({
   endpoints: builder => ({
     getAllDevelopers: builder.query<TDeveloper[], void>({
       query: () => ({
-        url: '/api/user/developers',
+        url: '/user/developers',
         method: 'GET',
       }),
       providesTags: ['users'],

@@ -17,7 +17,7 @@ const adminUsersApi = api.injectEndpoints({
       TAdminUserSearch
     >({
       query: search => ({
-        url: '/api/admin/users',
+        url: '/admin/users',
         method: 'POST',
         body: search,
       }),
@@ -25,7 +25,7 @@ const adminUsersApi = api.injectEndpoints({
     }),
     getAdminUserById: builder.query<TAdminUser, number | string>({
       query: id => ({
-        url: `/api/admin/users/${id}`,
+        url: `/admin/users/${id}`,
         method: 'GET',
       }),
       keepUnusedDataFor: 5,
@@ -37,7 +37,7 @@ const adminUsersApi = api.injectEndpoints({
       { userId: number | string; newUserData: TAdminUserDataUpdate }
     >({
       query: ({ userId, newUserData }) => ({
-        url: `/api/admin/users/${userId}`,
+        url: `/admin/users/${userId}`,
         method: 'POST',
         body: newUserData,
       }),
@@ -48,7 +48,7 @@ const adminUsersApi = api.injectEndpoints({
       { userId: number | string; newUserEmail: TAdminUserEmailUpdate }
     >({
       query: ({ userId, newUserEmail }) => ({
-        url: `/api/admin/users/${userId}/email`,
+        url: `/admin/users/${userId}/email`,
         method: 'POST',
         body: newUserEmail,
       }),
@@ -59,7 +59,7 @@ const adminUsersApi = api.injectEndpoints({
       { userId: number | string; newUserNickname: TAdminUserNicknameUpdate }
     >({
       query: ({ userId, newUserNickname }) => ({
-        url: `/api/admin/users/${userId}/nickname`,
+        url: `/admin/users/${userId}/nickname`,
         method: 'POST',
         body: newUserNickname,
       }),
@@ -73,7 +73,7 @@ const adminUsersApi = api.injectEndpoints({
       }
     >({
       query: ({ userId, newUserStatusInSchool }) => ({
-        url: `/api/admin/users/${userId}/status-in-school`,
+        url: `/admin/users/${userId}/status-in-school`,
         method: 'POST',
         body: newUserStatusInSchool,
       }),
@@ -84,7 +84,7 @@ const adminUsersApi = api.injectEndpoints({
       { userId: number | string; newUserRoles: TAdminUserRolesUpdate }
     >({
       query: ({ userId, newUserRoles }) => ({
-        url: `/api/admin/users/${userId}/roles`,
+        url: `/admin/users/${userId}/roles`,
         method: 'POST',
         body: newUserRoles,
       }),
@@ -92,7 +92,7 @@ const adminUsersApi = api.injectEndpoints({
     }),
     deleteAdminUserById: builder.mutation<void, number | string>({
       query: userId => ({
-        url: `/api/admin/users/${userId}`,
+        url: `/admin/users/${userId}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['administration'],

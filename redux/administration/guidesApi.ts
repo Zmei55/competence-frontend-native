@@ -14,7 +14,7 @@ const guidesApi = api.injectEndpoints({
   endpoints: builder => ({
     createIndustry: builder.mutation<TIndustry, string>({
       query: name => ({
-        url: '/api/industry',
+        url: '/industry',
         method: 'POST',
         body: {
           name,
@@ -25,7 +25,7 @@ const guidesApi = api.injectEndpoints({
     }),
     createJobTitle: builder.mutation<TJobTitle, string>({
       query: name => ({
-        url: '/api/job-title',
+        url: '/job-title',
         method: 'POST',
         body: {
           name,
@@ -36,7 +36,7 @@ const guidesApi = api.injectEndpoints({
     }),
     createProfession: builder.mutation<TProfession, string>({
       query: name => ({
-        url: '/api/profession',
+        url: '/profession',
         method: 'POST',
         body: {
           name,
@@ -50,7 +50,7 @@ const guidesApi = api.injectEndpoints({
       { id: number | string; name: string }
     >({
       query: ({ id, name }) => ({
-        url: `/api/industry/${id}`,
+        url: `/industry/${id}`,
         method: 'PUT',
         body: {
           name,
@@ -64,7 +64,7 @@ const guidesApi = api.injectEndpoints({
       { id: number | string; name: string }
     >({
       query: ({ id, name }) => ({
-        url: `/api/job-title/${id}`,
+        url: `/job-title/${id}`,
         method: 'PUT',
         body: {
           name,
@@ -78,7 +78,7 @@ const guidesApi = api.injectEndpoints({
       { id: number | string; name: string }
     >({
       query: ({ id, name }) => ({
-        url: `/api/profession/${id}`,
+        url: `/profession/${id}`,
         method: 'PUT',
         body: {
           name,
@@ -89,7 +89,7 @@ const guidesApi = api.injectEndpoints({
     }),
     getAllDriverLicence: builder.query<TDriverLicence[], void>({
       query: () => ({
-        url: '/api/driver-licences',
+        url: '/driver-licences',
         method: 'GET',
       }),
       providesTags: ['driverLicence'],
@@ -97,7 +97,7 @@ const guidesApi = api.injectEndpoints({
     }),
     getAllEducationType: builder.query<TEducationType[], void>({
       query: () => ({
-        url: '/api/education-types',
+        url: '/education-types',
         method: 'GET',
       }),
       providesTags: ['educationType'],
@@ -105,7 +105,7 @@ const guidesApi = api.injectEndpoints({
     }),
     getAllIndustry: builder.query<TIndustry[], void>({
       query: () => ({
-        url: '/api/industry/all',
+        url: '/industry/all',
         method: 'GET',
       }),
       providesTags: ['industries'],
@@ -113,7 +113,7 @@ const guidesApi = api.injectEndpoints({
     }),
     getAllJobTitle: builder.query<TJobTitle[], void>({
       query: () => ({
-        url: '/api/job-title/all',
+        url: '/job-title/all',
         method: 'GET',
       }),
       providesTags: ['jobTitles'],
@@ -121,7 +121,7 @@ const guidesApi = api.injectEndpoints({
     }),
     getAllLanguage: builder.query<TLanguage[], void>({
       query: () => ({
-        url: '/api/languages',
+        url: '/languages',
         method: 'GET',
       }),
       providesTags: ['language'],
@@ -129,7 +129,7 @@ const guidesApi = api.injectEndpoints({
     }),
     getAllLanguageLevel: builder.query<TLanguageLevel[], void>({
       query: () => ({
-        url: '/api/language-levels',
+        url: '/language-levels',
         method: 'GET',
       }),
       providesTags: ['language'],
@@ -137,7 +137,7 @@ const guidesApi = api.injectEndpoints({
     }),
     getAllProfession: builder.query<TProfession[], void>({
       query: () => ({
-        url: '/api/profession/all',
+        url: '/profession/all',
         method: 'GET',
       }),
       providesTags: ['professions'],
@@ -145,7 +145,7 @@ const guidesApi = api.injectEndpoints({
     }),
     getAllSkillLevel: builder.query<TSkillLevel[], void>({
       query: () => ({
-        url: '/api/skill-levels',
+        url: '/skill-levels',
         method: 'GET',
       }),
       providesTags: ['skillLevel'],

@@ -12,7 +12,7 @@ const guaranteeApi = api.injectEndpoints({
   endpoints: builder => ({
     getGuarantorById: builder.query<TGuarantor, number | string>({
       query: guarantorId => ({
-        url: `/api/guarantor-profile/${guarantorId}`,
+        url: `/guarantor-profile/${guarantorId}`,
         method: 'GET',
       }),
       providesTags: ['guarantee'],
@@ -22,7 +22,7 @@ const guaranteeApi = api.injectEndpoints({
       void
     >({
       query: () => ({
-        url: `/api/competa-confirm/guarantor/all`,
+        url: `/competa-confirm/guarantor/all`,
         method: 'GET',
       }),
       providesTags: ['guarantee'],
@@ -32,7 +32,7 @@ const guaranteeApi = api.injectEndpoints({
       number
     >({
       query: competaId => ({
-        url: `/api/competa-confirm/competa/${competaId}`,
+        url: `/competa-confirm/competa/${competaId}`,
         method: 'GET',
       }),
       providesTags: ['guarantee'],
@@ -42,14 +42,14 @@ const guaranteeApi = api.injectEndpoints({
       number
     >({
       query: competaId => ({
-        url: `/api/competa-confirm/unregistered-guarantor/competa/${competaId}`,
+        url: `/competa-confirm/unregistered-guarantor/competa/${competaId}`,
         method: 'GET',
       }),
       providesTags: ['guarantee'],
     }),
     getAllGuarantorByFilter: builder.mutation<TGuarantor[], TGuarantorFilter>({
       query: body => ({
-        url: '/api/guarantor-profile',
+        url: '/guarantor-profile',
         method: 'POST',
         body,
       }),
@@ -60,7 +60,7 @@ const guaranteeApi = api.injectEndpoints({
       TNewCompetaConfirmationRegistered
     >({
       query: ({ competaId, guarantorProfileId }) => ({
-        url: `/api/competa-confirm/competa/${competaId}/guarantor/${guarantorProfileId}`,
+        url: `/competa-confirm/competa/${competaId}/guarantor/${guarantorProfileId}`,
         method: 'POST',
       }),
       invalidatesTags: ['guarantee'],

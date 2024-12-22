@@ -5,7 +5,7 @@ const softSkillsApi = api.injectEndpoints({
   endpoints: builder => ({
     createSoftSkillCompeta: builder.mutation<TCompetence, FormData>({
       query: formData => ({
-        url: '/api/competa/soft-skill',
+        url: '/competa/soft-skill',
         method: 'POST',
         body: formData,
         credentials: 'include',
@@ -18,7 +18,7 @@ const softSkillsApi = api.injectEndpoints({
       { competaId: number; formData: FormData }
     >({
       query: ({ competaId, formData }) => ({
-        url: `/api/competa/soft-skill/${competaId}`,
+        url: `/competa/soft-skill/${competaId}`,
         method: 'PUT',
         body: formData,
       }),

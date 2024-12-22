@@ -5,7 +5,7 @@ const countriesApi = api.injectEndpoints({
   endpoints: builder => ({
     getAllCountries: builder.query<TCountry[], void>({
       query: () => ({
-        url: '/api/country',
+        url: '/country',
         method: 'GET',
       }),
       providesTags: ['countries'],
