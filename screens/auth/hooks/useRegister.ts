@@ -5,7 +5,7 @@ import {
   saveRegisterErrorMessage,
   resetRegisterErrorMessage,
 } from 'redux/auth';
-import { TNewUser, TRegisterForm } from '..';
+import { TNewUser, TRegisterForm } from 'screens/auth/types';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useRegister = () => {

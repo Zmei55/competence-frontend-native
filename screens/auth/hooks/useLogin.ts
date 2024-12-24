@@ -6,7 +6,7 @@ import {
   saveLoginErrorMessage,
   resetLoginErrorMessage,
 } from 'redux/auth';
-import { TCredentials } from '..';
+import { TCredentials } from 'screens/auth/types';
 import { customErrorHandler } from 'shared/helpers';
 
 export const useLogin = () => {

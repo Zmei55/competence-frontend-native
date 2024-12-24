@@ -7,4 +7,3 @@ export * from './useKeyDown';
 export * from './useGetImageById';
 export * from './useShowKeyboard';
 export * from './useDimensions';
-export * from './useGetDataFromStorage';

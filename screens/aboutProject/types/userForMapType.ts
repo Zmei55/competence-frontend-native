@@ -1,4 +1,4 @@
-import { TProfile } from 'screens/profile';
+import { TProfile } from 'screens/profile/types';
 
 export type TUser = Pick<
   TProfile,

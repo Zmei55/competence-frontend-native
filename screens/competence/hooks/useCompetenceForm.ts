@@ -1,3 +1,4 @@
+import { administrationSelector } from 'redux/administration';
 import { useAppSelector } from 'screens/app';
 import {
   TCompetenceForm,
@@ -9,11 +10,8 @@ import {
   useJobUpdate,
   useHardSkillCreate,
   useHardSkillUpdate,
-} from '..';
-import {
-  useUpdateAdminCompetenceById,
-  administrationSelector,
-} from 'screens/administration';
+} from 'screens/competence';
+import { useUpdateAdminCompetenceById } from 'screens/administration';
 import {
   EDUCATION,
   SOFTSKILL,
