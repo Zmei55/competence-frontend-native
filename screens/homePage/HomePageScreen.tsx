@@ -14,12 +14,12 @@ import { Colors, Theme } from 'shared/theme';
 import { Text, Stack } from 'shared/ui';
 import { useDimensions } from 'shared/hooks';
 
-import CircleIcon from 'shared/icons/Circle';
+import CircleIcon from 'assets/icons/Circle';
 
-const heroImage = require('../../shared/images/hero-image.jpg');
-const competencyImg = require('../../shared/images/competency.webp');
-const feedbackImg = require('../../shared/images/360.webp');
-const resumeImg = require('../../shared/images/resume.webp');
+const heroImage = require('../../assets/images/hero-image.jpg');
+const competencyImg = require('../../assets/images/competency.webp');
+const feedbackImg = require('../../assets/images/360.webp');
+const resumeImg = require('../../assets/images/resume.webp');
 
 interface InfoBoxProps {
   style: StyleProp<ViewStyle>;
@@ -36,11 +36,11 @@ const InfoBox: React.FC<InfoBoxProps> = ({
   firstParagraph,
   secondParagraph,
 }) => {
-  const { widthWindow } = useDimensions();
+  const { widthWindow, Breakpoints } = useDimensions();
 
   return (
     <Stack
-      direction={widthWindow > 700 ? 'row' : 'column'}
+      direction={Breakpoints.lg ? 'row' : 'column'}
       style={style}
       spacing={2}
     >
@@ -48,8 +48,8 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         source={image}
         resizeMode="cover"
         style={{
-          width: widthWindow > 700 ? 400 : widthWindow - Theme.spacing(4) * 2,
-          height: widthWindow > 700 ? 400 : widthWindow - Theme.spacing(4) * 2,
+          width: Breakpoints.lg ? 400 : widthWindow - Theme.spacing(4) * 2,
+          height: Breakpoints.lg ? 400 : widthWindow - Theme.spacing(4) * 2,
         }}
       />
 
@@ -59,9 +59,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         </Text>
 
         <Stack direction="row">
-          <View style={styles.iconBox}>
-            <CircleIcon fill={Colors.white} />
-          </View>
+          <CircleIcon fill={Colors.white} />
 
           <Text
             color="white"
@@ -75,9 +73,7 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         </Stack>
 
         <Stack direction="row">
-          <View style={styles.iconBox}>
-            <CircleIcon fill={Colors.white} />
-          </View>
+          <CircleIcon fill={Colors.white} />
 
           <Text
             color="white"
@@ -207,9 +203,5 @@ const styles = StyleSheet.create({
   },
   infoBoxThree: {
     backgroundColor: Colors.primaryDark,
-  },
-  iconBox: {
-    width: 30,
-    height: 30,
   },
 });

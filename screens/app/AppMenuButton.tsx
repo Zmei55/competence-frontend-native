@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, Pressable, View } from 'react-native';
 import { Dropdown, DropdownInputProps } from 'react-native-paper-dropdown';
 
-import MenuIcon from 'shared/icons/Menu';
-import CrossIcon from 'shared/icons/Cross';
+import MenuIcon from 'assets/icons/Menu';
+import CrossIcon from 'assets/icons/Cross';
 import { TextInput } from 'react-native-paper';
 import { Colors } from 'shared/theme';
 
@@ -64,25 +64,7 @@ export const AppMenuButton: FC<AppMenuButtonProps> = ({
         style={styles.button}
         onPress={() => setShowAppMenu(showAppMenu => !showAppMenu)}
       >
-        {showAppMenu ? (
-          <View
-            style={{
-              width: 24,
-              height: 24,
-            }}
-          >
-            <CrossIcon />
-          </View>
-        ) : (
-          <View
-            style={{
-              width: 24,
-              height: 24,
-            }}
-          >
-            <MenuIcon />
-          </View>
-        )}
+        {showAppMenu ? <CrossIcon /> : <MenuIcon />}
       </Pressable>
     </View>
   );
