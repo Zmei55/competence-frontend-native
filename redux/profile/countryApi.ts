@@ -1,5 +1,5 @@
 import { api } from '../app/api';
-import { TCountry } from 'screens/profile/types';
+import { TCountry } from '@/types/profile';
 
 const countriesApi = api.injectEndpoints({
   endpoints: builder => ({

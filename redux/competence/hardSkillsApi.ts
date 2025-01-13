@@ -1,5 +1,5 @@
 import { api } from '../app/api';
-import { TCompetence } from 'screens/competence';
+import { TCompetence } from '@/types/competence';
 
 const hardSkillsApi = api.injectEndpoints({
   endpoints: builder => ({

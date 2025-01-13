@@ -8,7 +8,7 @@ import {
   TAdminUserSearch,
   TAdminUserStatusInSchoolUpdate,
   TAdminUserDataUpdate,
-} from 'screens/administration';
+} from '@/types/administration';
 
 const adminUsersApi = api.injectEndpoints({
   endpoints: builder => ({

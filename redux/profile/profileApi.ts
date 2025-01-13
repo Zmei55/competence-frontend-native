@@ -1,9 +1,5 @@
 import { api } from '../app/api';
-import {
-  IProfileFormValues,
-  TProfile,
-  TProfileName,
-} from 'screens/profile/types';
+import { IProfileFormValues, TProfile, TProfileName } from '@/types/profile';
 
 const profileApi = api.injectEndpoints({
   endpoints: builder => ({

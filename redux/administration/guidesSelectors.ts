@@ -1,4 +1,4 @@
-import { RootState } from 'redux/store';
+import { RootState } from '../store';
 import {
   TDriverLicence,
   TEducationType,
@@ -8,7 +8,7 @@ import {
   TLanguageLevel,
   TProfession,
   TSkillLevel,
-} from 'screens/administration';
+} from '@/types/administration';
 
 export const driverLicenceSelector = (
   state: RootState

@@ -1,5 +1,5 @@
 import { api } from '../app/api';
-import { TCompetence, TCompetenceFeed } from 'screens/competence';
+import { TCompetence, TCompetenceFeed } from '@/types/competence';
 
 const competencesApi = api.injectEndpoints({
   endpoints: builder => ({

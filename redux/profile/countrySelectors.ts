@@ -1,5 +1,5 @@
-import { RootState } from 'redux/store';
-import { TCountry } from 'screens/profile/types';
+import { RootState } from '../store';
+import { TCountry } from '@/types/profile';
 
-export const selectCountries = (state: RootState): TCountry[] | [] =>
+export const countriesSelector = (state: RootState): TCountry[] | [] =>
   state.countries.countries;

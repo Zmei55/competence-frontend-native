@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { TAdministrationState } from 'screens/administration';
+import { TAdministrationState } from '@/types/administration';
 
 const initialState: TAdministrationState = {
   administration: false,

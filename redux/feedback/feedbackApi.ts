@@ -4,7 +4,7 @@ import {
   TNewEmptyFeedbackRegisteredUser,
   TNewEmptyFeedbackUnregisteredUser,
   TResponseFeedback,
-} from 'screens/feedback';
+} from '@/types/feedback';
 
 const feedbackApi = api.injectEndpoints({
   endpoints: builder => ({

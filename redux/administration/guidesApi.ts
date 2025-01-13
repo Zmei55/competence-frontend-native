@@ -8,7 +8,7 @@ import {
   TLanguageLevel,
   TProfession,
   TSkillLevel,
-} from 'screens/administration';
+} from '@/types/administration';
 
 const guidesApi = api.injectEndpoints({
   endpoints: builder => ({

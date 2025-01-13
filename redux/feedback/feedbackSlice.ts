@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TFeedback, TFeedbackSlice } from 'screens/feedback';
+import { TFeedback, TFeedbackSlice } from '@/types/feedback';
 
 const initialState: TFeedbackSlice = {
   feedback: null,
