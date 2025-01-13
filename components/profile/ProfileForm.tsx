@@ -208,7 +208,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
               validate={validateRequired}
               title={t('currentProfession')}
               list={professionList}
-              label={t('residence')}
+              label={t('currentProfession')}
               required
               // disabled
             />
