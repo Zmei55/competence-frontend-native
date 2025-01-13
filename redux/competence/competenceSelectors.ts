@@ -1,5 +1,5 @@
-import { RootState } from 'redux/store';
-import { TCompetence } from 'screens/competence';
+import { RootState } from '../store';
+import { TCompetence } from '@/types/competence';
 
 export const competenceSelector = (state: RootState): TCompetence | null =>
   state.competences.competence;

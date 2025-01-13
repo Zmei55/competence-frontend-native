@@ -1,4 +1,4 @@
-import { api } from 'redux/app/api';
+import { api } from '../app/api';
 
 const sharedApi = api.injectEndpoints({
   endpoints: builder => ({

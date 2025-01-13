@@ -1,11 +1,11 @@
 import { api } from '../app/api';
-import { TCompetence, TCompetenceFeed } from 'screens/competence';
+import { TCompetence, TCompetenceFeed } from '@/types/competence';
 
 const competencesApi = api.injectEndpoints({
   endpoints: builder => ({
     getAllCompetences: builder.query<TCompetence[], number | string>({
       query: userId => ({
-        url: `/api/competa/all/${userId}`,
+        url: `/competa/all/${userId}`,
         method: 'GET',
       }),
       providesTags: ['competences'],
@@ -13,7 +13,7 @@ const competencesApi = api.injectEndpoints({
     }),
     getCompetenceById: builder.query<TCompetence, number | string>({
       query: competenceId => ({
-        url: `/api/competa/${competenceId}`,
+        url: `/competa/${competenceId}`,
         method: 'GET',
       }),
       providesTags: ['competences'],
@@ -24,7 +24,7 @@ const competencesApi = api.injectEndpoints({
       void
     >({
       query: () => ({
-        url: `/api/competa/all/users`,
+        url: `/competa/all/users`,
         method: 'GET',
       }),
       providesTags: ['competences'],

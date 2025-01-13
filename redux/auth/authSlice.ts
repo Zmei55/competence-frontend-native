@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TUser, TAuthState } from 'screens/auth';
+import { TUser, TAuthState } from '@/types/auth';
 
 const initialState: TAuthState = {
-  authChecked: false,
+  authChecked: true, // false
   isAuthLoading: false,
   user: null,
   loginErrorMessage: null,

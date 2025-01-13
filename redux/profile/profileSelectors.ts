@@ -1,9 +1,9 @@
-import { RootState } from 'redux/store';
-import { TProfile } from 'screens/profile';
+import { RootState } from '../store';
+import { TProfile } from '@/types/profile';
 
-export const selectProfile = (state: RootState): TProfile | null =>
+export const profileSelector = (state: RootState): TProfile | null =>
   state.profile.profile;
-export const selectProfileFormError = (state: RootState): string | null =>
+export const profileFormErrorSelector = (state: RootState): string | null =>
   state.profile.errorMessage;
-export const selectProfileAvatar = (state: RootState): string | null =>
+export const profileAvatarSelector = (state: RootState): string | null =>
   state.profile.profile ? state.profile.profile.avatarImageData : null;

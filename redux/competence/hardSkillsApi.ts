@@ -1,11 +1,11 @@
 import { api } from '../app/api';
-import { TCompetence } from 'screens/competence';
+import { TCompetence } from '@/types/competence';
 
 const hardSkillsApi = api.injectEndpoints({
   endpoints: builder => ({
     createHardSkillCompeta: builder.mutation<TCompetence, FormData>({
       query: formData => ({
-        url: '/api/competa/hard-skill',
+        url: '/competa/hard-skill',
         method: 'POST',
         body: formData,
         credentials: 'include',
@@ -17,7 +17,7 @@ const hardSkillsApi = api.injectEndpoints({
       { competaId: number; formData: FormData }
     >({
       query: ({ competaId, formData }) => ({
-        url: `/api/competa/hard-skill/${competaId}`,
+        url: `/competa/hard-skill/${competaId}`,
         method: 'PUT',
         body: formData,
       }),

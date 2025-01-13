@@ -1,6 +1,6 @@
 import { api } from '../app/api';
-import { TAdminCompetence } from 'screens/administration';
-import { TCompetence } from 'screens/competence';
+import { TAdminCompetence } from '@/types/administration';
+import { TCompetence } from '@/types/competence';
 
 const adminCompetenciesApi = api.injectEndpoints({
   endpoints: builder => ({
@@ -9,7 +9,7 @@ const adminCompetenciesApi = api.injectEndpoints({
       number | string
     >({
       query: id => ({
-        url: `/api/admin/competencies/${id}/competencies`,
+        url: `/admin/competencies/${id}/competencies`,
         method: 'GET',
       }),
       keepUnusedDataFor: 5,
@@ -21,7 +21,7 @@ const adminCompetenciesApi = api.injectEndpoints({
       { competaId: number; formData: FormData }
     >({
       query: ({ competaId, formData }) => ({
-        url: `/api/admin/competencies/${competaId}`,
+        url: `/admin/competencies/${competaId}`,
         method: 'POST',
         body: formData,
       }),

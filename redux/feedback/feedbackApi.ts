@@ -4,13 +4,13 @@ import {
   TNewEmptyFeedbackRegisteredUser,
   TNewEmptyFeedbackUnregisteredUser,
   TResponseFeedback,
-} from 'screens/feedback';
+} from '@/types/feedback';
 
 const feedbackApi = api.injectEndpoints({
   endpoints: builder => ({
     getAllFeedbacks: builder.query<TResponseFeedback[], number | string>({
       query: competenceId => ({
-        url: `/api/feedback/all/${competenceId}`,
+        url: `/feedback/all/${competenceId}`,
         method: 'GET',
       }),
       providesTags: ['feedback'],
@@ -18,7 +18,7 @@ const feedbackApi = api.injectEndpoints({
     }),
     getFeedbackById: builder.query<TResponseFeedback, number | string>({
       query: id => ({
-        url: `/api/feedback/${id}`,
+        url: `/feedback/${id}`,
         method: 'GET',
       }),
       providesTags: ['feedback'],
@@ -26,7 +26,7 @@ const feedbackApi = api.injectEndpoints({
     }),
     createFeedback: builder.mutation<TResponseFeedback, TNewCompletedFeedback>({
       query: formData => ({
-        url: '/api/feedback',
+        url: '/feedback',
         method: 'POST',
         body: formData,
         credentials: 'include',
@@ -39,7 +39,7 @@ const feedbackApi = api.injectEndpoints({
       TNewEmptyFeedbackUnregisteredUser
     >({
       query: formData => ({
-        url: '/api/feedback/send-email/unregistered-user',
+        url: '/feedback/send-email/unregistered-user',
         method: 'POST',
         body: formData,
         credentials: 'include',
@@ -51,7 +51,7 @@ const feedbackApi = api.injectEndpoints({
       TNewEmptyFeedbackRegisteredUser
     >({
       query: formData => ({
-        url: '/api/feedback/send-email/registered-user',
+        url: '/feedback/send-email/registered-user',
         method: 'POST',
         body: formData,
         credentials: 'include',

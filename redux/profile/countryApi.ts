@@ -1,11 +1,11 @@
 import { api } from '../app/api';
-import { TCountry } from 'screens/profile';
+import { TCountry } from '@/types/profile';
 
 const countriesApi = api.injectEndpoints({
   endpoints: builder => ({
     getAllCountries: builder.query<TCountry[], void>({
       query: () => ({
-        url: '/api/country',
+        url: '/country',
         method: 'GET',
       }),
       providesTags: ['countries'],

@@ -1,11 +1,11 @@
 import { api } from '../app/api';
-import { TCompetence } from 'screens/competence';
+import { TCompetence } from '@/types/competence';
 
 const educationsApi = api.injectEndpoints({
   endpoints: builder => ({
     createEducationCompeta: builder.mutation<TCompetence, FormData>({
       query: formData => ({
-        url: '/api/competa/education',
+        url: '/competa/education',
         method: 'POST',
         body: formData,
         credentials: 'include',
@@ -18,7 +18,7 @@ const educationsApi = api.injectEndpoints({
       { competaId: number; formData: FormData }
     >({
       query: ({ competaId, formData }) => ({
-        url: `/api/competa/education/${competaId}`,
+        url: `/competa/education/${competaId}`,
         method: 'PUT',
         body: formData,
       }),
