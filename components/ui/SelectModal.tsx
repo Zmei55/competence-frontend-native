@@ -101,7 +101,7 @@ export const SelectModal: FC<SelectModalProps> = ({
         required={required}
         {...rest}
       />
-      <View className="absolute bottom-2 right-1">
+      <View className="h-full justify-center absolute right-2">
         {visible ? (
           <Ionicons
             name="chevron-up-outline"
