@@ -1,7 +1,6 @@
 import { View, Modal as ModalRN, TouchableWithoutFeedback } from 'react-native';
 
 import { ModalPropsType } from '@/types';
-import { Colors } from '@/constants/Colors';
 
 export const Modal: React.FC<ModalPropsType> = ({
   children,
@@ -31,13 +30,7 @@ export const Modal: React.FC<ModalPropsType> = ({
             touchSoundDisabled
           >
             <View
-              className={`border-2 border-primary-default rounded bg-white ${modalContainerStyles}`}
-              // style={{
-              //   borderWidth: 2,
-              //   borderColor: Colors.primary.default,
-              //   borderRadius: 4,
-              //   backgroundColor: Colors.white,
-              // }}
+              className={` border-2 border-primary-default rounded bg-white ${modalContainerStyles}`}
             >
               {children}
             </View>
