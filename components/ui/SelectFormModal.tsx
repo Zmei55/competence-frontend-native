@@ -125,37 +125,36 @@ export const SelectFormModal: FC<SelectFormModalProps> = ({
           </View>
 
           <View className={isShowKeyboard ? 'max-h-[350px]' : 'max-h-[550px]'}>
-            {filter && (
-              <View className="px-3">
-                <InputNotForm
-                  onChangeText={filter => onFilteringList(filter)}
-                  onFocus={setIsShowKeyboardTrue}
-                  onBlur={setIsShowKeyboardFalse}
+            {list ? (
+              <View>
+                {filter && (
+                  <View className="px-3">
+                    <InputNotForm
+                      onChangeText={filter => onFilteringList(filter)}
+                      onFocus={setIsShowKeyboardTrue}
+                      onBlur={setIsShowKeyboardFalse}
+                    />
+                  </View>
+                )}
+
+                <FlatList
+                  data={filter ? filteredList : list}
+                  renderItem={({ item }) => (
+                    <TouchableOpacity
+                      key={item.id}
+                      className="h-14 justify-center px-3"
+                      onPress={() => onSelect(item)}
+                    >
+                      <Text>{item.name ? item.name : item.description}</Text>
+                    </TouchableOpacity>
+                  )}
+                  ItemSeparatorComponent={() => (
+                    <View className="w-full h-[1px] border border-gray-light" />
+                  )}
                 />
               </View>
-            )}
-
-            {list ? (
-              <FlatList
-                data={filter ? filteredList : list}
-                renderItem={({ item }) => (
-                  <TouchableOpacity
-                    key={item.id}
-                    className="h-14 justify-center px-3"
-                    onPress={() => onSelect(item)}
-                  >
-                    <Text>{item.name ? item.name : item.description}</Text>
-                  </TouchableOpacity>
-                )}
-                ItemSeparatorComponent={() => (
-                  <View className="w-full h-[1px] border border-gray-light" />
-                )}
-                // keyboardDismissMode="on-drag"
-                // keyboardShouldPersistTaps="handled"
-                // contentInsetAdjustmentBehavior="always"
-              />
             ) : (
-              <Text>Список не загрузился</Text>
+              <Text color="error">Список не загрузился</Text>
             )}
           </View>
 
