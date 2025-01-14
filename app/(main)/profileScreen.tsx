@@ -12,6 +12,8 @@ import { showDate } from '@/helpers';
 
 import { ProfileData, ProfileForm } from '@/components/profile';
 
+// import { profile } from '@/constants/data/profile';
+
 const ProfileScreen: FC = () => {
   const currentUser = useAppSelector(userSelector);
   const profile = useAppSelector(profileSelector);
@@ -41,7 +43,7 @@ const ProfileScreen: FC = () => {
   return (
     <SafeAreaView className="flex-1 mt-[64px]">
       {!profile && isCurrentUserProfileLoading && (
-        <Spinner size="large" height={300} />
+        <Spinner size="large" color="primary" height={300} />
       )}
 
       <ScrollView>
