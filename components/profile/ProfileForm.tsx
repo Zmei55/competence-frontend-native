@@ -32,10 +32,6 @@ import { SaveProfileModalModal } from '@/components/profile/SaveProfileModal';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-// import { professionList } from '@/constants/data/professionList';
-// import { skillLevelList } from '@/constants/data/skillLevelList';
-// import { countries } from '@/constants/data/countries';
-
 interface ProfileFormProps {
   profile: TProfile;
   setEditMode: Dispatch<SetStateAction<boolean>>;

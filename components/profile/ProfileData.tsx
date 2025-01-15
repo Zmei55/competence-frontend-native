@@ -18,10 +18,6 @@ import { WidthBox } from '@/components/profile/WidthBox';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-// import { professionList } from '@/constants/data/professionList';
-// import { skillLevelList } from '@/constants/data/skillLevelList';
-// import { countries } from '@/constants/data/countries';
-
 interface AddressBlockProps {
   showReadyToMove?: boolean;
   readyToMove?: boolean;

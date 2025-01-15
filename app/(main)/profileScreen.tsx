@@ -12,8 +12,6 @@ import { showDate } from '@/helpers';
 
 import { ProfileData, ProfileForm } from '@/components/profile';
 
-// import { profile } from '@/constants/data/profile';
-
 const ProfileScreen: FC = () => {
   const currentUser = useAppSelector(userSelector);
   const profile = useAppSelector(profileSelector);
