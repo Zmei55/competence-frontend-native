@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TProfile, TProfileState } from '@/types/profile';
 
+import { profile } from '@/constants/data/profile';
+
 const initialState: TProfileState = {
-  profile: null,
+  profile: profile, // null
   errorMessage: null,
   isLoading: false,
 };
