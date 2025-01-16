@@ -29,21 +29,17 @@ export const AppMenuButton: FC<AppMenuButtonProps> = ({
 }) => {
   const { i18n } = useTranslation();
 
-  const changeLanguage = (language: string | number | undefined) => {
+  const changeLanguage = (language: string) => {
     if (typeof language === 'number') return null;
     i18n.changeLanguage(language);
   };
 
   return (
     <View className="flex-row gap-2 mr-3">
-      <SelectModal
+      <SelectModal<LanguageOptionType>
         list={LANGUAGE_OPTIONS}
-        value={
-          i18n.language
-            ? LANGUAGE_OPTIONS.find(o => o.id === i18n.language)?.name
-            : 'Выбери'
-        }
-        onSelect={(e: LanguageOptionType) => changeLanguage(e.id)}
+        value={i18n.language}
+        onSelect={e => changeLanguage(e.id)}
         modalContainerStyles="w-40"
         width={70}
         height={40}
