@@ -1,7 +1,7 @@
-import { FC, useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { View, TouchableOpacity, FlatList, DimensionValue } from 'react-native';
-import { TextInputProps } from 'react-native-paper';
+import { TextInputProps, RadioButton } from 'react-native-paper';
 
 import { InputNotForm } from '@/components/ui/InputNotForm';
 import { Modal } from '@/components/ui/Modal';
@@ -13,9 +13,9 @@ import { useShowKeyboard } from '@/hooks';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Colors } from '@/constants/Colors';
 
-interface SelectModalProps extends TextInputProps {
-  list: ListItemType[] | null;
-  onSelect: (e: any) => void;
+interface SelectModalProps<T extends ListItemType> extends TextInputProps {
+  list: T[];
+  onSelect: (e: T) => void;
   title?: string;
   filter?: boolean;
   required?: boolean;
@@ -26,8 +26,9 @@ interface SelectModalProps extends TextInputProps {
   height?: DimensionValue;
 }
 
-export const SelectModal: FC<SelectModalProps> = ({
+export function SelectModal<T extends ListItemType>({
   list,
+  value,
   onSelect,
   required = false,
   filter = false,
@@ -40,15 +41,14 @@ export const SelectModal: FC<SelectModalProps> = ({
   width = '100%',
   height = 56,
   ...rest
-}) => {
+}: SelectModalProps<T>) {
   const selectRef = useRef<View>(null);
   const { t } = useTranslation(['buttons']);
   const { setIsShowKeyboardTrue, setIsShowKeyboardFalse } = useShowKeyboard();
   const [visible, setVisible] = useState<boolean>(false);
-  const [filteredList, setFilteredList] = useState<ListItemType[] | null>(list);
+  const [filteredList, setFilteredList] = useState<T[] | null>(list);
 
-  // const listItem = list && list.find(i => i.id.toString() === defaultValue);
-  const [selectValue, setSelectValue] = useState<ListItemType>();
+  const [selectValue, setSelectValue] = useState<string>(value ? value : '1');
 
   function onFilteringList(filter: string) {
     setFilteredList(
@@ -68,15 +68,34 @@ export const SelectModal: FC<SelectModalProps> = ({
     setVisible(false);
   }
 
+  const findListItem = useCallback((list: T[], id: string) => {
+    if (!list) throw new Error('List not found. SelectModal');
+    if (!id) throw new Error('ID not found. SelectModal');
+
+    return list.find(i => i.id === id);
+  }, []);
+
+  function findListItemValue(list: T[], id: string) {
+    const listItem = findListItem(list, id);
+    return listItem && listItem.name
+      ? listItem.name
+      : listItem && listItem.description
+        ? listItem.description
+        : new Error('ListItemValue not found').message;
+  }
+
   const onSelectItemPress = useCallback(
-    (item: ListItemType) => {
-      onSelect(item);
-      setSelectValue(item);
+    (id: string) => {
+      const listItem = findListItem(list, id);
+      if (!listItem) return null;
+
+      onSelect(listItem);
+      setSelectValue(id);
       setFilteredList(list);
       setIsShowKeyboardFalse();
       setVisible(false);
     },
-    [list, onSelect, setIsShowKeyboardFalse]
+    [findListItem, list, onSelect, setIsShowKeyboardFalse]
   );
 
   return (
@@ -88,13 +107,7 @@ export const SelectModal: FC<SelectModalProps> = ({
       }}
     >
       <InputNotForm
-        value={
-          selectValue && selectValue.name
-            ? selectValue.name
-            : selectValue && selectValue.description
-              ? selectValue.description
-              : 'Выбери...'
-        }
+        value={findListItemValue(list, selectValue)}
         width={width}
         height={height}
         style={style}
@@ -146,23 +159,32 @@ export const SelectModal: FC<SelectModalProps> = ({
             )}
 
             {list ? (
-              <FlatList
-                data={filter ? filteredList : list}
-                renderItem={({ item }) => (
-                  <TouchableOpacity
-                    key={item.id}
-                    className="h-14 justify-center px-3"
-                    onPress={() => onSelectItemPress(item)}
-                  >
-                    <Text>{item.name ? item.name : item.description}</Text>
-                  </TouchableOpacity>
-                )}
-                ItemSeparatorComponent={() => (
-                  <View className="w-full h-[1px] border border-gray-light" />
-                )}
-              />
+              <RadioButton.Group
+                value={selectValue}
+                onValueChange={item => onSelectItemPress(item)}
+              >
+                <FlatList
+                  data={filter ? filteredList : list}
+                  renderItem={({ item }) => (
+                    <RadioButton.Item
+                      key={item.id}
+                      label={
+                        item.name
+                          ? item.name
+                          : item.description
+                            ? item.description
+                            : ''
+                      }
+                      value={item.id.toString()}
+                    />
+                  )}
+                  ItemSeparatorComponent={() => (
+                    <View className="w-full h-[1px] border border-gray-light" />
+                  )}
+                />
+              </RadioButton.Group>
             ) : (
-              <Text>Список не загрузился</Text>
+              <Text color="error">List not found.</Text>
             )}
           </View>
 
@@ -187,4 +209,4 @@ export const SelectModal: FC<SelectModalProps> = ({
       </Modal>
     </View>
   );
-};
+}
