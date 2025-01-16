@@ -176,6 +176,8 @@ export function SelectModal<T extends ListItemType>({
                             : ''
                       }
                       value={item.id.toString()}
+                      uncheckedColor={Colors.primary.default}
+                      color={Colors.primary.default}
                     />
                   )}
                   ItemSeparatorComponent={() => (
