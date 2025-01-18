@@ -108,7 +108,7 @@ export const SelectNotForm: React.FC<SelectProps> = ({
 }) => {
   return (
     <Dropdown
-      menuContentStyle={{ top: typeof height === 'number' ? height + 2 : 56 }}
+      menuContentStyle={{ top: height ? height : 56 }}
       options={options ? options : adaptationOfList(list)}
       value={value}
       onSelect={onSelect}

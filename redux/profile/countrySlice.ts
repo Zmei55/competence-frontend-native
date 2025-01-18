@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TCountry, TCountryState } from '@/types/profile';
 
+import { countries } from '@/constants/data/countries';
+
 const initialState: TCountryState = {
-  countries: [],
+  countries: countries, // null
 };
 
 const countrySlice = createSlice({

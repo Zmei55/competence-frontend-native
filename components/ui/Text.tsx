@@ -14,6 +14,7 @@ type CustomTextProps = TextPropsNative & {
   variant?: 'title' | 'subtitle' | 'bodyLarge' | 'body' | 'bodySmall';
   bold?: boolean;
   italic?: boolean;
+  className?: string;
 };
 
 export const Text: React.FC<CustomTextProps> = ({
@@ -23,11 +24,12 @@ export const Text: React.FC<CustomTextProps> = ({
   italic = false,
   style,
   children,
+  className,
   ...rest
 }) => {
   return (
     <TextNative
-      className="text-x"
+      className={`text-x ${className}`}
       style={[
         {
           fontSize: TextSize[variant],

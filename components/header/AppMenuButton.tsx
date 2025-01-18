@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Pressable, View } from 'react-native';
 
 import { Colors } from '@/constants/Colors';
-import { SelectNotForm } from '@/components/ui';
+import { SelectModal } from '@/components/ui';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -12,7 +12,12 @@ interface AppMenuButtonProps {
   setShowAppMenu: Dispatch<SetStateAction<boolean>>;
 }
 
-const LANGUAGE_OPTIONS = [
+type LanguageOptionType = {
+  id: string;
+  name: string;
+};
+
+const LANGUAGE_OPTIONS: LanguageOptionType[] = [
   { name: 'En', id: 'en' },
   { name: 'De', id: 'de' },
   { name: 'Ru', id: 'ru' },
@@ -24,17 +29,18 @@ export const AppMenuButton: FC<AppMenuButtonProps> = ({
 }) => {
   const { i18n } = useTranslation();
 
-  const changeLanguage = (language: string | number | undefined) => {
+  const changeLanguage = (language: string) => {
     if (typeof language === 'number') return null;
     i18n.changeLanguage(language);
   };
 
   return (
     <View className="flex-row gap-2 mr-3">
-      <SelectNotForm
+      <SelectModal<LanguageOptionType>
         list={LANGUAGE_OPTIONS}
         value={i18n.language}
-        onSelect={(e: string | number | undefined) => changeLanguage(e)}
+        onSelect={e => changeLanguage(e.id)}
+        modalContainerStyles="w-40"
         width={70}
         height={40}
       />

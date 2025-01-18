@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { DimensionValue, Text, TouchableOpacity, View } from 'react-native';
 import { TextInput as TextInputRNP, TextInputProps } from 'react-native-paper';
 
 import { Colors } from '@/constants/Colors';
@@ -9,6 +9,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 interface InputNotFormProps extends TextInputProps {
   required?: boolean;
   isPassword?: boolean;
+  width?: DimensionValue;
+  height?: DimensionValue;
 }
 
 export const InputNotForm: FC<InputNotFormProps> = ({
@@ -18,12 +20,14 @@ export const InputNotForm: FC<InputNotFormProps> = ({
   isPassword = false,
   right,
   style,
+  width = '100%',
+  height = 56,
   ...rest
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   return (
-    <View className="h-[58px]">
+    <View style={{ width, height }}>
       {label ? (
         <TextInputRNP
           mode="outlined"
@@ -36,6 +40,7 @@ export const InputNotForm: FC<InputNotFormProps> = ({
               {required && <Text className="text-error"> *</Text>}
             </>
           }
+          style={[{ width, height }, style]}
           {...rest}
         />
       ) : (
@@ -44,6 +49,7 @@ export const InputNotForm: FC<InputNotFormProps> = ({
           outlineColor={Colors.primary.default}
           activeOutlineColor={Colors.primary.dark}
           secureTextEntry={isPassword && !isPasswordVisible}
+          style={[{ width, height }, style]}
           {...rest}
         />
       )}

@@ -5,6 +5,7 @@ export const GRADUATE = 'GRADUATE';
 export const EXTERNAL_PERSON = 'EXTERNAL_PERSON';
 export const DEFAULT_STRING = '';
 export const DEFAULT = 'DEFAULT';
+export const ALL = 'ALL';
 export const CONFIRMED = 'CONFIRMED';
 export const NOT_CONFIRMED = 'NOT_CONFIRMED';
 export const DELETED = 'DELETED';
@@ -14,7 +15,6 @@ export const PUBLIC = 'PUBLIC';
 export const PRIVATE = 'PRIVATE';
 export const ASCENDING = 'ASCENDING';
 export const DESCENDING = 'DESCENDING';
-export const SEPARATOR_MARK = '+';
 export const MIN_WIDTH = '320px';
 export const MAX_WIDTH = '1200px';
 

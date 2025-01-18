@@ -11,6 +11,9 @@ import {
   TSkillLevel,
 } from '@/types/administration';
 
+import { professionList } from '@/constants/data/professionList';
+import { skillLevelList } from '@/constants/data/skillLevelList';
+
 const initialState: TGuidesState = {
   guides: {
     driverLicences: null,
@@ -19,8 +22,8 @@ const initialState: TGuidesState = {
     jobTitles: null,
     languages: null,
     languageLevels: null,
-    professions: null,
-    skillLevels: null,
+    professions: professionList, // null
+    skillLevels: skillLevelList, // null
   },
   isIndustryLoading: false,
   isJobTitleLoading: false,
