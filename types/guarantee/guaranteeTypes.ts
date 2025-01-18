@@ -51,6 +51,7 @@ export type TCompetaConfirmationRegistered = {
     firstName: string;
     lastName: string;
     avatarImageData: string | null;
+    skillLevelId: number | null;
   };
   statusCompetaConfirmation:
     | typeof CONFIRMED
