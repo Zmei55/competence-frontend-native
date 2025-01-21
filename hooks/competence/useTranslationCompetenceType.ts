@@ -3,6 +3,7 @@ import {
   EDUCATION,
   SOFTSKILL,
   JOB,
+  HARDSKILL,
   HARDSKILL_CUSTOM,
   HARDSKILL_LANGUAGE,
   HARDSKILL_DRIVERLICENCE,
@@ -15,6 +16,7 @@ export const useTranslationCompetenceType = () => {
     if (type === EDUCATION) return t('competenceType.education');
     if (type === SOFTSKILL) return t('competenceType.softSkill');
     if (type === JOB) return t('competenceType.job');
+    if (type === HARDSKILL) return t('competenceType.hardSkill');
     if (type === HARDSKILL_CUSTOM)
       return t('competenceType.hardSkill', { context: 'CUSTOM' });
     if (type === HARDSKILL_LANGUAGE)

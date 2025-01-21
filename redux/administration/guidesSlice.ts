@@ -13,15 +13,21 @@ import {
 
 import { professionList } from '@/constants/data/professionList';
 import { skillLevelList } from '@/constants/data/skillLevelList';
+import { driverLicenceList } from '@/constants/data/driverLicenceList';
+import { educationTypeList } from '@/constants/data/educationTypeList';
+import { industryList } from '@/constants/data/industryList';
+import { jobTitleList } from '@/constants/data/jobTitleList';
+import { languageList } from '@/constants/data/languageList';
+import { languageLevelList } from '@/constants/data/languageLevelList';
 
 const initialState: TGuidesState = {
   guides: {
-    driverLicences: null,
-    educationTypes: null,
-    industries: null,
-    jobTitles: null,
-    languages: null,
-    languageLevels: null,
+    driverLicences: driverLicenceList, // null
+    educationTypes: educationTypeList, // null
+    industries: industryList, // null
+    jobTitles: jobTitleList, // null
+    languages: languageList, // null
+    languageLevels: languageLevelList, // null
     professions: professionList, // null
     skillLevels: skillLevelList, // null
   },
