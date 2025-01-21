@@ -29,7 +29,6 @@ export const Text: React.FC<CustomTextProps> = ({
 }) => {
   return (
     <TextNative
-      className={`text-x ${className}`}
       style={[
         {
           fontSize: TextSize[variant],
@@ -42,6 +41,7 @@ export const Text: React.FC<CustomTextProps> = ({
         italic && { fontStyle: 'italic' },
         style,
       ]}
+      className={`text-x ${className}`}
       {...rest}
     >
       {children}

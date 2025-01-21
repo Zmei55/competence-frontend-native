@@ -29,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
       onPress={onPress}
       activeOpacity={0.7}
       className={`
-        h-14 px-8 justify-center items-center
+        min-h-14 px-8 justify-center items-center
         ${buttonColor === 'primary' ? 'bg-primary-default border-primary-default' : undefined}
         ${buttonColor === 'error' ? 'bg-error border-error' : undefined}
         ${buttonColor === 'warning' ? 'bg-orange-default border-orange-default' : undefined}
