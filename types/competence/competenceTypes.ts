@@ -1,6 +1,13 @@
 import { Dayjs } from 'dayjs';
 
-import { TEducation, TJob, THardSkill } from '.';
+import {
+  TEducation,
+  TJob,
+  THardSkill,
+  THardSkillCustom,
+  THardSkillLanguage,
+  THardSkillDriverLicence,
+} from '.';
 import {
   EDUCATION,
   JOB,
@@ -18,14 +25,22 @@ type TLocation = {
   country: string;
 };
 
+type TDocumentInfo = {
+  id: number;
+  originalName: string;
+  description: string;
+  previewImageId: number;
+};
+
 type Competence = {
   id: number;
   userProfileId: number | string;
   competaType: TCompetenceType;
   title: string | null;
   description: string | null;
+  dateOfCreation: Dayjs | null;
   competenceDate: Dayjs | null;
-  imageData: string | undefined;
+  imageData: string | undefined | null;
   imageId: number | null;
   public: boolean;
   includedInCV: boolean;
@@ -40,6 +55,7 @@ type Competence = {
   hardSkill: THardSkill | null;
   jobSkill: TJob | null;
   feedbacks: TResponseFeedback[] | null;
+  documentInfoList: TDocumentInfo[] | null;
 };
 
 export type TCompetence = Competence;
@@ -112,4 +128,41 @@ export type TCompetenceSlice = {
   isCompetenceLoading: boolean;
   errorMessage: string | null;
   showModal: boolean;
+};
+
+export type TCompetenceForList = {
+  id: number;
+  competaType: TCompetenceType;
+  title: string | null;
+  description: string | null;
+  competenceDate: Dayjs | null;
+  trustIndex: number;
+  educationSkill: Pick<
+    TEducation,
+    'name' | 'educationTypeId' | 'professionId'
+  > | null;
+  hardSkill: {
+    hardSkillCustom: Pick<
+      THardSkillCustom,
+      'industryId' | 'skillLevelId'
+    > | null;
+    hardSkillLanguage: Pick<
+      THardSkillLanguage,
+      'languageId' | 'languageLevelId'
+    > | null;
+    hardSkillDriverLicence: Pick<
+      THardSkillDriverLicence,
+      'driverLicenceId' | 'skillLevelId'
+    > | null;
+  } | null;
+  jobSkill: Pick<
+    TJob,
+    | 'skillLevelId'
+    | 'companyName'
+    | 'jobEndDate'
+    | 'jobTitleId'
+    | 'industryId'
+    | 'currentJob'
+  > | null;
+  confirmed: boolean;
 };

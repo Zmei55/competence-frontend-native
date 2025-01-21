@@ -1,9 +1,13 @@
 import { api } from '../app/api';
-import { TCompetence, TCompetenceFeed } from '@/types/competence';
+import {
+  TCompetence,
+  TCompetenceFeed,
+  TCompetenceForList,
+} from '@/types/competence';
 
 const competencesApi = api.injectEndpoints({
   endpoints: builder => ({
-    getAllCompetences: builder.query<TCompetence[], number | string>({
+    getAllCompetences: builder.query<TCompetenceForList[], number | string>({
       query: userId => ({
         url: `/competa/all/${userId}`,
         method: 'GET',
