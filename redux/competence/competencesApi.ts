@@ -34,6 +34,12 @@ const competencesApi = api.injectEndpoints({
       providesTags: ['competences'],
       transformResponse: (response: TCompetenceFeed[]) => response,
     }),
+    deleteCompetenceById: builder.mutation<void, number>({
+      query: competenceId => ({
+        url: `/api/competa/${competenceId}`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
@@ -42,4 +48,5 @@ export const {
   useGetCompetenceByIdQuery,
   useLazyGetCompetenceByIdQuery,
   useLazyGetPublicAndConfirmedCompetaByAllUsersQuery,
+  useDeleteCompetenceByIdMutation,
 } = competencesApi;
