@@ -1,7 +1,9 @@
 import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ScrollView, View, TouchableOpacity } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Link } from 'expo-router';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import { currentUserIdSelector } from '@/redux/auth';
 import {
@@ -72,6 +74,16 @@ const CompetenciesScreen: React.FC = () => {
             </View>
           )}
 
+          <Link
+            href={{
+              pathname: '/(main)/competenceScreen',
+              params: { id: 'bacon' },
+            }}
+            asChild
+          >
+            Link
+          </Link>
+
           {competenceList && !isCompetencesLoading && (
             <View className="gap-3">
               {competenceList.map(competence => (
@@ -111,188 +123,205 @@ const CompetenceArticle: FC<CompetenceArticleProps> = ({ competence }) => {
   } = competence;
 
   return (
-    <TouchableOpacity
-      onPress={() => console.log('click id: ', competence.id)}
-      className={`
-        px-4 py-3 rounded-2xl shadow-slate-950 shadow-lg
-        ${competaType === EDUCATION ? 'bg-competenceType-education' : undefined}
-        ${competaType === JOB ? 'bg-competenceType-job' : undefined}
-        ${competaType === SOFTSKILL ? 'bg-competenceType-softSkill' : undefined}
-        ${competaType === HARDSKILL_CUSTOM || competaType === HARDSKILL_LANGUAGE || competaType === HARDSKILL_DRIVERLICENCE ? 'bg-competenceType-hardSkill' : undefined}
-        `} // градиент добавить
-      activeOpacity={0.7}
+    <Link
+      href={{
+        pathname: '/(main)/competenceScreen',
+        params: { competenceId: 'bacon' },
+      }}
     >
-      <View className="min-h-40 gap-3">
-        <View className="flex-row justify-between flex-wrap">
-          <View className="flex-row gap-3">
-            <Text color="white">
-              {competaType.slice(0, 10) === HARDSKILL
-                ? translationCompetenceType(competaType.slice(0, 10))
-                : translationCompetenceType(competaType)}
-            </Text>
-
-            {confirmed && (
-              <Ionicons
-                name="checkmark-sharp"
-                size={24}
-                color={Colors.primary.default}
-              />
-            )}
-          </View>
-
-          <Text color="white">{`${t('trustIndex')}: ${trustIndex}`}</Text>
-        </View>
-
-        <View className="px-3 items-center bg-white rounded-3xl">
-          <Text
-            variant="subtitle"
-            style={[
-              competaType === EDUCATION && {
-                color: Colors.competenceType.education,
-              },
-              competaType === JOB && {
-                color: Colors.competenceType.job,
-              },
-              competaType === SOFTSKILL && {
-                color: Colors.competenceType.softSkill,
-              },
-              (competaType === HARDSKILL_CUSTOM ||
-                competaType === HARDSKILL_LANGUAGE ||
-                competaType === HARDSKILL_DRIVERLICENCE) && {
-                color: Colors.competenceType.hardSkill,
-              },
-            ]}
-          >
-            {title}
-          </Text>
-        </View>
-
+      <LinearGradient
+        className={`
+          w-full px-4 py-3 rounded-2xl shadow-slate-950 shadow-lg overflow-hidden
+          ${competaType === EDUCATION ? 'bg-competenceType-education' : undefined}
+          ${competaType === JOB ? 'bg-competenceType-job' : undefined}
+          ${competaType === SOFTSKILL ? 'bg-competenceType-softSkill' : undefined}
+          ${competaType === HARDSKILL_CUSTOM || competaType === HARDSKILL_LANGUAGE || competaType === HARDSKILL_DRIVERLICENCE ? 'bg-competenceType-hardSkill' : undefined}
+        `}
+        colors={['transparent', 'rgba(0, 0, 0, 0.3)']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
         <View>
-          {hardSkill && (
-            <>
-              <Text color="white">
-                {translationCompetenceType(competaType)}
+          <View className="min-h-40 gap-3">
+            <View className="flex-row justify-between flex-wrap">
+              <View className="flex-row gap-3">
+                <Text color="white">
+                  {competaType.slice(0, 10) === HARDSKILL
+                    ? translationCompetenceType(competaType.slice(0, 10))
+                    : translationCompetenceType(competaType)}
+                </Text>
+
+                {confirmed && (
+                  <Ionicons
+                    name="checkmark-sharp"
+                    size={24}
+                    color={Colors.primary.default}
+                  />
+                )}
+              </View>
+
+              <Text color="white">{`${t('trustIndex')}: ${trustIndex}`}</Text>
+            </View>
+
+            <View className="px-3 items-center bg-white rounded-3xl">
+              <Text
+                variant="subtitle"
+                style={[
+                  competaType === EDUCATION && {
+                    color: Colors.competenceType.education,
+                  },
+                  competaType === JOB && {
+                    color: Colors.competenceType.job,
+                  },
+                  competaType === SOFTSKILL && {
+                    color: Colors.competenceType.softSkill,
+                  },
+                  (competaType === HARDSKILL_CUSTOM ||
+                    competaType === HARDSKILL_LANGUAGE ||
+                    competaType === HARDSKILL_DRIVERLICENCE) && {
+                    color: Colors.competenceType.hardSkill,
+                  },
+                ]}
+              >
+                {title}
               </Text>
+            </View>
 
-              {hardSkill.hardSkillCustom && (
+            <View>
+              {hardSkill && (
                 <>
-                  {hardSkill.hardSkillCustom.industryId && industryList && (
-                    <Text color="white">
-                      {
-                        findListItemById(
-                          industryList,
-                          hardSkill.hardSkillCustom.industryId
-                        )?.name
-                      }
-                    </Text>
-                  )}
-                  {hardSkill.hardSkillCustom.skillLevelId && skillLevelList && (
-                    <Text color="white">
-                      {
-                        findListItemById(
-                          skillLevelList,
-                          hardSkill.hardSkillCustom.skillLevelId
-                        )?.description
-                      }
-                    </Text>
-                  )}
-                </>
-              )}
+                  <Text color="white">
+                    {translationCompetenceType(competaType)}
+                  </Text>
 
-              {hardSkill.hardSkillLanguage && (
-                <>
-                  {hardSkill.hardSkillLanguage.languageId && languageList && (
-                    <Text color="white">
-                      {
-                        findListItemById(
-                          languageList,
-                          hardSkill.hardSkillLanguage.languageId
-                        )?.description
-                      }
-                    </Text>
-                  )}
-                  {hardSkill.hardSkillLanguage.languageLevelId &&
-                    languageLevelList && (
-                      <Text color="white">
-                        {
-                          findListItemById(
-                            languageLevelList,
-                            hardSkill.hardSkillLanguage.languageLevelId
-                          )?.description
-                        }
-                      </Text>
-                    )}
-                </>
-              )}
-
-              {hardSkill.hardSkillDriverLicence && (
-                <>
-                  {hardSkill.hardSkillDriverLicence.driverLicenceId &&
-                    driverLicenceList && (
-                      <View className="flex-row gap-1">
-                        <Text color="white">Kl:</Text>
+                  {hardSkill.hardSkillCustom && (
+                    <>
+                      {hardSkill.hardSkillCustom.industryId && industryList && (
                         <Text color="white">
                           {
                             findListItemById(
-                              driverLicenceList,
-                              hardSkill.hardSkillDriverLicence.driverLicenceId
-                            )?.description
+                              industryList,
+                              hardSkill.hardSkillCustom.industryId
+                            )?.name
                           }
                         </Text>
-                      </View>
-                    )}
+                      )}
+                      {hardSkill.hardSkillCustom.skillLevelId &&
+                        skillLevelList && (
+                          <Text color="white">
+                            {
+                              findListItemById(
+                                skillLevelList,
+                                hardSkill.hardSkillCustom.skillLevelId
+                              )?.description
+                            }
+                          </Text>
+                        )}
+                    </>
+                  )}
+
+                  {hardSkill.hardSkillLanguage && (
+                    <>
+                      {hardSkill.hardSkillLanguage.languageId &&
+                        languageList && (
+                          <Text color="white">
+                            {
+                              findListItemById(
+                                languageList,
+                                hardSkill.hardSkillLanguage.languageId
+                              )?.description
+                            }
+                          </Text>
+                        )}
+                      {hardSkill.hardSkillLanguage.languageLevelId &&
+                        languageLevelList && (
+                          <Text color="white">
+                            {
+                              findListItemById(
+                                languageLevelList,
+                                hardSkill.hardSkillLanguage.languageLevelId
+                              )?.description
+                            }
+                          </Text>
+                        )}
+                    </>
+                  )}
+
+                  {hardSkill.hardSkillDriverLicence && (
+                    <>
+                      {hardSkill.hardSkillDriverLicence.driverLicenceId &&
+                        driverLicenceList && (
+                          <View className="flex-row gap-1">
+                            <Text color="white">Kl:</Text>
+                            <Text color="white">
+                              {
+                                findListItemById(
+                                  driverLicenceList,
+                                  hardSkill.hardSkillDriverLicence
+                                    .driverLicenceId
+                                )?.description
+                              }
+                            </Text>
+                          </View>
+                        )}
+                    </>
+                  )}
                 </>
               )}
-            </>
-          )}
 
-          {educationSkill && (
-            <>
-              {educationSkill.professionId && professionList && (
-                <Text color="white">
-                  {firstLatterToUpperCase(
-                    findListItemById(
-                      professionList,
-                      educationSkill.professionId
-                    )?.name
+              {educationSkill && (
+                <>
+                  {educationSkill.professionId && professionList && (
+                    <Text color="white">
+                      {firstLatterToUpperCase(
+                        findListItemById(
+                          professionList,
+                          educationSkill.professionId
+                        )?.name
+                      )}
+                    </Text>
                   )}
-                </Text>
+                </>
               )}
-            </>
-          )}
 
-          {jobSkill && (
-            <>
-              {jobSkill.industryId && industryList && (
-                <Text color="white">
-                  {findListItemById(industryList, jobSkill.industryId)?.name}
-                </Text>
-              )}
-              {jobSkill.companyName && (
-                <Text color="white">{jobSkill.companyName}</Text>
-              )}
-              {jobSkill.jobTitleId && jobTitleList && (
-                <Text color="white">
-                  {firstLatterToUpperCase(
-                    findListItemById(jobTitleList, jobSkill.jobTitleId)?.name
+              {jobSkill && (
+                <>
+                  {jobSkill.industryId && industryList && (
+                    <Text color="white">
+                      {
+                        findListItemById(industryList, jobSkill.industryId)
+                          ?.name
+                      }
+                    </Text>
                   )}
-                </Text>
+                  {jobSkill.companyName && (
+                    <Text color="white">{jobSkill.companyName}</Text>
+                  )}
+                  {jobSkill.jobTitleId && jobTitleList && (
+                    <Text color="white">
+                      {firstLatterToUpperCase(
+                        findListItemById(jobTitleList, jobSkill.jobTitleId)
+                          ?.name
+                      )}
+                    </Text>
+                  )}
+                </>
               )}
-            </>
-          )}
+            </View>
+          </View>
+
+          <View className="items-end">
+            {competenceDate && (
+              <Text color="white">{showMonthYear(competenceDate)}</Text>
+            )}
+
+            {jobSkill && jobSkill.jobEndDate && !competenceDate && (
+              <Text color="white">{showMonthYear(jobSkill.jobEndDate)}</Text>
+            )}
+          </View>
         </View>
-      </View>
-
-      <View className="items-end">
-        {competenceDate && (
-          <Text color="white">{showMonthYear(competenceDate)}</Text>
-        )}
-
-        {jobSkill && jobSkill.jobEndDate && !competenceDate && (
-          <Text color="white">{showMonthYear(jobSkill.jobEndDate)}</Text>
-        )}
-      </View>
-    </TouchableOpacity>
+      </LinearGradient>
+    </Link>
   );
 };
 
