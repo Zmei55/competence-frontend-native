@@ -16,3 +16,8 @@ export * from './useHardSkillCreate';
 export * from './useHardSkillUpdate';
 export * from './useFilterCompetasAllUsers';
 export * from './useGetPublicAndConfirmedCompetaByAllUsers';
+export * from './useDeleteCompetenceById';
+export * from './useDocumentDeleteById';
+export * from './useDocumentDownloadById';
+export * from './useDocumentPreviewById';
+export * from './useDocumentUpload';

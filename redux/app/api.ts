@@ -60,6 +60,7 @@ export const api = createApi({
     'users',
     'administration',
     'feedback',
+    'documents',
   ],
   endpoints: () => ({}),
   refetchOnReconnect: true,

@@ -4,3 +4,4 @@ export * from './educationTypes';
 export * from './softSkillTypes';
 export * from './jobTypes';
 export * from './hardSkillTypes';
+export * from './documentTypes';
