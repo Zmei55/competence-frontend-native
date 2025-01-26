@@ -28,7 +28,7 @@ import {
 import { Colors } from '@/constants/Colors';
 
 import { WidthBox } from '@/components/profile/WidthBox';
-import { SaveProfileModalModal } from '@/components/profile/SaveProfileModal';
+import { SaveProfileModal } from '@/components/profile/SaveProfileModal';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
@@ -363,7 +363,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({
         </View>
       </View>
 
-      <SaveProfileModalModal
+      <SaveProfileModal
         formValues={getValues()}
         handleSubmit={handleSubmit}
         showUpdateProfileModal={showUpdateProfileModal}
