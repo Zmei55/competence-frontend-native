@@ -16,7 +16,7 @@ import { useDimensions, useAppSelector } from '@/hooks';
 import { Button } from '@/components/ui';
 import { Colors } from '@/constants/Colors';
 
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const heroImage = require('../assets/images/hero-image.jpg');
 const competencyImg = require('../assets/images/competency.webp');
@@ -82,9 +82,9 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         </Text>
 
         <View className="flex-row">
-          <FontAwesome
+          <Ionicons
             className="text-justify py-3 pr-2"
-            name="circle"
+            name="ellipse-sharp"
             size={8}
             color={Colors.white}
           />
@@ -93,9 +93,9 @@ const InfoBox: React.FC<InfoBoxProps> = ({
         </View>
 
         <View className="flex-row">
-          <FontAwesome
+          <Ionicons
             className="text-justify py-3 pr-2"
-            name="circle"
+            name="ellipse-sharp"
             size={8}
             color={Colors.white}
           />
