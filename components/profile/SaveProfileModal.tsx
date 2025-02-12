@@ -14,7 +14,7 @@ interface SaveProfileModalProps {
   handleSubmit: UseFormHandleSubmit<IProfileFormValues, undefined>;
 }
 
-export const SaveProfileModalModal: FC<SaveProfileModalProps> = ({
+export const SaveProfileModal: FC<SaveProfileModalProps> = ({
   formValues,
   showUpdateProfileModal,
   setShowUpdateProfileModal,

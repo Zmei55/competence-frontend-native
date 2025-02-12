@@ -31,5 +31,9 @@
   "confirmFeedback": "Confirm feedback",
   "showUserCompetencies": "Show user competencies",
   "showCompetencies": "Show competencies",
-  "hideCompetencies": "Hide competencies"
+  "hideCompetencies": "Hide competencies",
+  "uploadDocument": "Upload Competence Document",
+  "download": "Download",
+  "preview": "Preview",
+  "selectFile": "select file"
 }

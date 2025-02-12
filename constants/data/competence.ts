@@ -23,7 +23,7 @@ export const competenceEducation: TCompetence = {
     name: 'Education institution 1',
     educationTypeId: 5,
     professionId: 2,
-    resultUrl: 'www.test.com',
+    resultUrl: 'https://www.google.de/',
   },
   documentInfoList: [
     {

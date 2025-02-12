@@ -17,6 +17,10 @@ const MainLayout: React.FC = () => {
           name="competenciesScreen"
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="competenceScreen"
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="requestsScreen" options={{ headerShown: false }} />
       </Stack>
     </>

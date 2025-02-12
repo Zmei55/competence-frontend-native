@@ -31,5 +31,9 @@
   "confirmFeedback": "Подтвердить обратную связь",
   "showUserCompetencies": "Показать компетенции пользователей",
   "showCompetencies": "Показать компетенции",
-  "hideCompetencies": "Скрыть компетенции"
+  "hideCompetencies": "Скрыть компетенции",
+  "uploadDocument": "Загрузить документ компетенции",
+  "download": "Скачать",
+  "preview": "Просмотр",
+  "selectFile": "выбрать файл"
 }

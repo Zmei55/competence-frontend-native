@@ -31,5 +31,9 @@
   "confirmFeedback": "Feedback bestätigen",
   "showUserCompetencies": "Nutzerkompetenzen aufzeigens",
   "showCompetencies": "Kompetenzen aufzeigens",
-  "hideCompetencies": "Kompetenzen ausblenden"
+  "hideCompetencies": "Kompetenzen ausblenden",
+  "uploadDocument": "Kompetenzdokument hochladen",
+  "download": "Herunterladen",
+  "preview": "Vorschau",
+  "selectFile": "datei auswählen"
 }

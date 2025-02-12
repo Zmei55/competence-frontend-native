@@ -34,6 +34,7 @@
     "hardSkill_DRIVERLICENCE": "Driving Licence"
   },
   "reviews": "360 Reviews",
+  "file": "file",
   "fileLarge": "File size is too large",
   "filter": {
     "filter": "Filter",
@@ -95,8 +96,8 @@
     "language": "Choose the language",
     "languageLevel": "Choose language level",
     "driverLicenceType": "Choose your driver licence type",
-    "updateImage": "Update image, file formats:.jpg, .png. Upload file 2 Mb max, 800x600 recommended",
-    "uploadImage": "Allowed file formats: .jpg, .png. Upload file 2 Mb max, 800x600 recommended",
+    "updateImage": "Update image, file formats:.jpg, .png. Upload file 15 Mb max, 800x600 recommended",
+    "uploadImage": "Allowed file formats: .jpg, .png. Upload file 15 Mb max, 800x600 recommended",
     "isPublic": "Choose 'Private' when you want to hide your competence",
     "includeInCV": "Choose if you want to include this competence in CV",
     "currentJob": "Please select if this is your current place of work.",
@@ -105,6 +106,13 @@
     "achievements": "Input your achievements",
     "transportType": "Mode of transport"
   },
+  "documents": {
+    "document": "Document",
+    "documents": "Documents",
+    "savedDocument": "Document saved",
+    "uploadDocument": "Upload Competence Document",
+    "failedDownloadDocument": "Failed to download document"
+  },
   "from": "from",
   "competenceTitle": "Competence Title",
   "descriptionWasNotAdded": "Unfortunately, the description of the competency was not added :-(",
@@ -112,5 +120,8 @@
   "filteredCompetenciesNotFound": "Unfortunately, no competencies with such parameters were found :-(",
   "infoCompetence": "Competence information:",
   "competenceOwner": "Competence owner",
-  "authorCompetence": "Author"
+  "authorCompetence": "Author",
+  "deleteConfirmation": "Are you sure you want to delete this item? Once deleted, it cannot be restored.",
+  "deletedConfirmation": "The competence has been removed.",
+  "deletedDocument": "Document successfully deleted."
 }
